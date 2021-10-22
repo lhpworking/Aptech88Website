@@ -1,0 +1,10 @@
+.bg-gradient-yellow {
+  background-color: #ddc179 !important;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:checked {
+  background: #ddc179;
+  border: #ddc179 1px solid;
+}
+body {
+  background-color: #f0f2f5;
+}
