@@ -1,0 +1,17 @@
+/target/
+
+.classpath
+
+.DS_Store
+
+.project
+
+.settings/
+
+bin/
+
+HELP.md
+
+mvnw
+
+mvnw.cmd
