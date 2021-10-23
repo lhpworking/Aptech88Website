@@ -1,4 +1,4 @@
-<%@include file="../common/header.jspf"%>
+<%@include file="../common/admin/header.jspf"%>
     <!-- main content -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -389,7 +389,7 @@
       </div>
     </div>
     <!-- end main content -->
- <%@include file="../common/footer.jspf"%>
+ <%@include file="../common/admin/footer.jspf"%>
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 

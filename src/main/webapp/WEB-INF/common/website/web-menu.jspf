@@ -1,0 +1,82 @@
+<div class="col-3 col-lg-3">
+                    <div class="info-block">
+                        <div class="card rounded shadow-sm bg-light p-2">
+                            <div class="img-user p-3 d-flex align-items-center flex-column justify-content-center">
+                                <img src="https://source.unsplash.com/user" class="rounded-circle" alt="" width="150"
+                                    height="150">
+                                <h5 class="user-name mt-3"> Ly Hung Phat</h5>
+                            </div>
+                            <div class="menu-user ">
+                                <div class=" text-capitalize " aria-labelledby="dropdownMenuButton1">
+                                    <div
+                                        class="d-flex  align-items-center  flex-column justify-content-between m-3 gap-3">
+                                        <!-- account betting -->
+                                        <div
+                                            class="account-betting d-flex justify-content-between align-items-center gap-3 w-100">
+                                            <div class="text-muted">
+                                                <h5 class="dropdown-item p-0 text-muted fs-6">Account betting</h5>
+                                                <p class="dropdown-item p-0 m-0">100.000.000</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <a href="/web/recharge">
+                                                    <button class="btn btn-primary shadow-sm" id="" name="btn"
+                                                    value="">recharge</button>
+                                                </a>  
+                                            </div>
+                                        </div>
+                                        <!-- account withdraw -->
+                                        <div
+                                            class="account-withdraw d-flex justify-content-between align-items-center gap-3 w-100">
+                                            <div class="text-muted">
+                                                <h5 class="dropdown-item p-0 text-muted fs-6">Account withdraw</h5>
+                                                <p class="dropdown-item p-0 m-0">100.000.000</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-white shadow-sm" id="" name="btn"
+                                                    value="">withdraw</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <hr class="dropdown-divider bg-light">
+                                    </div>
+                                    <div><a class="dropdown-item p-2 fs-5" href="/web/user-profile"><i
+                                                class="bi bi-person-bounding-box me-2"></i>View
+                                            account</a></div>
+
+                                    <div><a class="dropdown-item p-2 fs-5 " href="#"><i
+                                                class="bi bi-person-check me-2"></i>Verify
+                                            account</a></div>
+
+                                    <div class="accordion " id="accordionExample">
+                                        <div class="accordion-item bg-light border-0 ">
+                                            <a class=" dropdown-item p-2 fs-5 dropdown-toggle" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne">
+                                                <i class="bi bi-receipt me-2"></i>Transaction history
+                                            </a>
+                                            <div id="collapseOne" class="accordion-collapse collapse "
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body p-2">
+                                                    <div><a class="dropdown-item p-2 fs-5  " href="#"><i
+                                                                class="bi bi-cash-stack me-2"></i>recharge
+                                                        </a></div>
+                                                    <div><a class="dropdown-item p-2 fs-5 " href="#"><i
+                                                                class="bi bi-bank2 me-2"></i></i>Withdraw</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <hr class="dropdown-divider bg-light">
+                                    </div>
+                                    <div><a class="dropdown-item fs-5 p-2"><i class="bi bi-box-arrow-right me-2"></i>
+                                            Log out
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

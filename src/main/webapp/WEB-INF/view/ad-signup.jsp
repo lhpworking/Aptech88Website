@@ -37,7 +37,7 @@
                   <h3 class="font-weight-bolder">Sign Up</h3>
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-white">
                   <form role="form">
                     <div class="input-group input-group-outline mb-3">
                       <input type="text" class="form-control" placeholder="Name">
@@ -59,7 +59,7 @@
                     </div>
                   </form>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <div class="card-footer bg-white text-center pt-0 px-lg-2 px-1">
                   <p class="mb-2 text-sm mx-auto">
                     Already have an account?
                     <a href="./login" class="text-dark text-gradient font-weight-bold">Sign in</a>
