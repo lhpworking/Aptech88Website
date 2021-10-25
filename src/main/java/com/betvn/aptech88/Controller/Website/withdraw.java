@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class userProfile {
-    @RequestMapping("/web/user-profile")
+public class withdraw {
+    @RequestMapping("/web/withdraw")
     public String index() {
-        return "web-profile";
+        return "web-withdraw";
     }
 }

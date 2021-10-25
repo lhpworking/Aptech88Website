@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class recharge {
     @RequestMapping("/web/recharge")
-    public String Recharge() {
+    public String index() {
         return "web-recharge";
     }
 }

@@ -20,7 +20,7 @@
                                             <div class="form-group">
                                                 <a href="/web/recharge">
                                                     <button class="btn btn-primary shadow-sm" id="" name="btn"
-                                                    value="">recharge</button>
+                                                    value="">Recharge</button>
                                                 </a>  
                                             </div>
                                         </div>
@@ -32,8 +32,10 @@
                                                 <p class="dropdown-item p-0 m-0">100.000.000</p>
                                             </div>
                                             <div class="form-group">
-                                                <button class="btn btn-white shadow-sm" id="" name="btn"
-                                                    value="">withdraw</button>
+                                                <a href="/web/withdraw">
+                                                    <button class="btn btn-light shadow-sm" id="" name="btn"
+                                                    value="">Withdraw</button>
+                                                </a>  
                                             </div>
                                         </div>
                                     </div>

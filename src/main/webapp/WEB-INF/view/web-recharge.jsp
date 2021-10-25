@@ -66,6 +66,7 @@
                                         <input type="number" class="form-control" id="floatingInput"
                                             placeholder="name@example.com">
                                         <label for="floatingInput">Deposit amount</label>
+                                        <small class="text-muted m-0 p-0">Range: $ 10 - 100.000</small>
                                     </div>
                                 </div>
                             </div>
