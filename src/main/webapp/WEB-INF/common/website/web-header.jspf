@@ -25,145 +25,164 @@
 <body class="g-sidenav-show">
     <!-- header -->
     <header>
-        <nav class="navbar navbar-main navbar-expand-lg d-lg-block p-0 shadow-sm bg-dark text-white border-radius-xl"
-            navbar-scroll="true">
-            <div class="container p-2 d-flex justify-content-between align-items-center">
-                <!-- logo -->
-                <nav class="logo-header  ">
-                    <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto w-50 " alt="logo">
-                </nav>
-                <div class="collapse navbar-collapse d-lg-none flex-row d-block  justify-content-end  me-md-0 me-sm-4 ">
-                    <!-- auth block -->
-                    <!-- <div class="auth-block"> -->
-                    <!-- login block -->
-                    <!-- <div class="login-block d-lg-flex flex-lg-row flex-column  align-items-center gap-lg-2 gap-2  "> -->
-                    <!-- input account -->
-                    <!-- <div class="form-group">
-                                <input type="text" name="" id="" class="form-control mb-lg-0 mb-3"
-                                    placeholder="Email or phone number" aria-describedby="helpId">
-                            </div> -->
-                    <!-- input password -->
-                    <!-- <div class="form-group">
-                                <input type="password" name="" id="" class="form-control" placeholder="Password"
-                                    aria-describedby="helpId">
-                            </div> -->
-                    <!-- button login -->
-                    <!-- <div class="form-group mt-3 mt-lg-0 mb-3 mb-lg-0">
-                                <button name="" id="" class="btn btn-primary w-100">Log In</button>
-                            </div> -->
-                    <!-- button sign up -->
-                    <!-- <div class="form-group ">
-                                <button name="" id="" class="btn btn-secondary w-100" data-bs-toggle="modal"
-                                    data-bs-target="#modelId">Sign up</button> -->
-                    <!-- Modal -->
-                    <!-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog"
-                                    aria-labelledby="modelTitleId" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <div class="text-black">
-                                                    <h4 class="modal-title">Register</h4>
-                                                    <p class="fs-7 text-muted">It's quick and easy.</p>
-                                                </div>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body text-black">
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col col-lg-6 col-md-6">
-                                                            <input type="text" name="" id="" class="form-control"
-                                                                placeholder="First name" aria-describedby="helpId"
-                                                                required>
+        <nav class="navbar navbar-main navbar-expand-lg p-0 shadow-sm bg-dark text-white border-radius-xl "
+        navbar-scroll="true">
+            <div class="container p-2 align-items-center">
+                <a class="logo-header navbar-brand" href="/webpage">
+                    <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150"
+                        height="50" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar">
+                    <i class="bi bi-list fs-1 text-white"></i>
+                </button>
+                <div class="offcanvas bg-dark offcanvas-end flex-column justify-content-between" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <a class="offvanvas-title" href="/webpage">
+                            <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150"
+                            height="50" alt="logo">
+                        </a>
+                        <a type="button" class="link-secondary" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg fs-3 "></i></a>
+                        </div>
+                    <div class="offcanvas-body justify-content-end">
+                        <!-- auth block -->
+                        <div class="auth-block">
+                            <!-- login block -->
+                            <div class="login-block d-lg-flex flex-lg-row flex-column  align-items-center gap-lg-2 gap-2  ">
+                                <!-- input account -->
+                                <div class="form-group">
+                                    <input type="text" name="" id="" class="form-control mb-lg-0 mb-3"
+                                        placeholder="Email or phone number" aria-describedby="helpId">
+                                </div>
+                                <!-- input password -->
+                                <div class="form-group">
+                                    <input type="password" name="" id="" class="form-control" placeholder="Password"
+                                        aria-describedby="helpId">
+                                </div>
+                                <!-- button login -->
+                                <div class="form-group mt-3 mt-lg-0 mb-3 mb-lg-0">
+                                    <button name="" id="" class="btn btn-primary w-100">Log In</button>
+                                </div>
+                                <%-- button sign up --%>
+                                    <div class="form-group ">
+                                        <button  id="" class="btn btn-secondary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modelId">Sign up</button>
+                                        <div class="modal fade  " id="modelId" tabindex="-1" role="dialog"
+                                            aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="text-black">
+                                                            <h4 class="modal-title">Register</h4>
+                                                            <p class="fs-7 text-muted">It's quick and easy.</p>
                                                         </div>
-                                                        <div class="col col-lg-6 col-md-6">
-                                                            <input type="text" name="" id="" class="form-control"
-                                                                placeholder="Last name" aria-describedby="helpId"
-                                                                required>
-                                                        </div>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
                                                     </div>
-                                                    <div class="row pt-3">
-                                                        <div class="col col-lg-12 col-md-12">
-                                                            <input type="email" name="" id="" class="form-control"
-                                                                placeholder="Email or phone number"
-                                                                aria-describedby="helpId" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pt-3">
-                                                        <div class="col col-lg-12 col-md-12">
-                                                            <input type="password" name="" id="" class="form-control"
-                                                                placeholder="New password" aria-describedby="helpId"
-                                                                required>
-                                                            <small class="text-muted">Create a Password of between 6 –
-                                                                15
-                                                                characters consist of alphabets (a-z) and numbers
-                                                                (0-9).</small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pt-3">
-                                                        <div class="col col-lg-12 col-md-12">
-                                                            <input type="password" name="" id="" class="form-control"
-                                                                placeholder="Confirm password" aria-describedby="helpId"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pt-3">
-                                                        <div class="col col-lg-12 col-md-12 d-flex align-items-center ">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    id="flexCheckDefault">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    Send me updates and promotions as per <a href=""
-                                                                        class="text-primary">Privacy Policy</a>
-                                                                </label>
+                                                    <div class="modal-body text-black">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col col-lg-6 col-md-6">
+                                                                    <input type="text" name="" id="" class="form-control"
+                                                                        placeholder="First name" aria-describedby="helpId"
+                                                                        required>
+                                                                </div>
+                                                                <div class="col col-lg-6 col-md-6">
+                                                                    <input type="text" name="" id="" class="form-control"
+                                                                        placeholder="Last name" aria-describedby="helpId"
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div class="col col-lg-12 col-md-12">
+                                                                    <input type="email" name="" id="" class="form-control"
+                                                                        placeholder="Email or phone number"
+                                                                        aria-describedby="helpId" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div class="col col-lg-12 col-md-12">
+                                                                    <input type="password" name="" id=""
+                                                                        class="form-control" placeholder="New password"
+                                                                        aria-describedby="helpId" required>
+                                                                    <small class="text-muted">Create a Password of between 6
+                                                                        –
+                                                                        15
+                                                                        characters consist of alphabets (a-z) and numbers
+                                                                        (0-9).</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div class="col col-lg-12 col-md-12">
+                                                                    <input type="password" name="" id=""
+                                                                        class="form-control" placeholder="Confirm password"
+                                                                        aria-describedby="helpId" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div
+                                                                    class="col col-lg-12 col-md-12 d-flex align-items-center ">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="" id="flexCheckDefault">
+                                                                        <label class="form-check-label"
+                                                                            for="flexCheckDefault">
+                                                                            Send me updates and promotions as per <a href=""
+                                                                                class="text-primary">Privacy Policy</a>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-1">
+                                                                <div
+                                                                    class="col col-lg-12 col-md-12 d-flex align-items-center ">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="" id="flexCheckDefault">
+                                                                        <label class="form-check-label"
+                                                                            for="flexCheckDefault">
+                                                                            I am at least 18 years of age and I have read
+                                                                            the <a href="" class="text-primary">Terms &
+                                                                                Conditions</a>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row pt-1">
-                                                        <div class="col col-lg-12 col-md-12 d-flex align-items-center ">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    id="flexCheckDefault">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    I am at least 18 years of age and I have read the <a
-                                                                        href="" class="text-primary">Terms &
-                                                                        Conditions</a>
-                                                                </label>
-                                                            </div>
-                                                        </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-primary">Sign Up</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-primary">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
-                        </div> -->
-                    <!-- <div class="login-block d-flex align-items-center justify-content-between">
-                            <!--input account -->
-                    <!-- <div class="form-group">
-                                <a href="" class="fs-7 text-warning">Forgotten password?</a>
-                            </div>
-                            <div class="fs-7 mb-3 mb-lg-0">
-                                <div class="date-block " id="date">
-                                    <script>
-                                        function clockTick() {
-                                            var date = new Date();
-                                            document.getElementById('date').innerHTML = date;
-                                        }
-                                        setInterval(clockTick, 1000);
-                                    </script>
+                            <div class="login-block d-flex  align-items-center justify-content-between">
+                                <!--input account -->
+                                <div class="form-group">
+                                    <a href="" class="fs-7 text-warning">Forgotten password?</a>
                                 </div>
+                                <div class="fs-7 mb-3 mb-lg-0 d-none d-lg-block">
+                                    <div class="date-block " id="date">
+                                        <script>
+                                            function clockTick() {
+                                                var date = new Date();
+                                                document.getElementById('date').innerHTML = date;
+                                            }
+                                            setInterval(clockTick, 1000);
+                                        </script>
+                                    </div>
 
+                                </div>
                             </div>
-                        </div> -->
-                    <!--end login block -->
+                            <!--end login block -->
+                        </div>
+                    </div>
                 </div>
-                <!-- logged block -->
-                <div class="auth-block d-flex align-items-center gap-3">
+                    <!-- logged block -->
+                    <div class="auth-block d-flex align-items-center gap-3">
                     <!-- notification -->
                     <div class="dropdown ">
                         <a type="button" class="text-decoration-none d-flex link-light  align-items-center"
@@ -207,6 +226,7 @@
                                             Hello, world! This is a toast message.
                                             Hello, world! This is a toast message.
                                             Hello, world! This is a toast message.
+
                                             Hello, world! This is a toast message.
                                         </p>
                                     </div>
@@ -227,6 +247,7 @@
                                             Hello, world! This is a toast message.
                                             Hello, world! This is a toast message.
                                             Hello, world! This is a toast message.
+
                                             Hello, world! This is a toast message.
                                         </p>
                                     </div>
@@ -252,9 +273,10 @@
                                         <p class="dropdown-item p-0 m-0">100.000.000</p>
                                     </div>
                                     <div class="form-group">
-                                        <a href="/web/recharge">
-                                            <button class="btn btn-primary shadow-sm" id="" name="btn" value="">Recharge</button>
-                                        </a>
+                                    <a href="/web/recharge">
+                                        <button class="btn btn-primary shadow-sm" id="" name="btn"      
+                                            value="">Recharge</button>
+                                    </a>
                                     </div>
                                 </div>
                                 <!-- account withdraw -->
@@ -266,7 +288,7 @@
                                     </div>
                                     <div class="form-group">
                                         <a href="/web/withdraw">
-                                            <button class="btn btn-white shadow-sm" id="" name="btn"
+                                        <button class="btn btn-white shadow-sm" id="" name="btn"
                                             value="">Withdraw</button>
                                         </a>
                                     </div>
@@ -275,7 +297,7 @@
                             <li>
                                 <hr class="dropdown-divider bg-light">
                             </li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-bounding-box me-2"></i>View
+                            <li><a class="dropdown-item" href="/web/user-profile"><i class="bi bi-person-bounding-box me-2"></i>View
                                     account</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-check me-2"></i>Verify
                                     account</a></li>

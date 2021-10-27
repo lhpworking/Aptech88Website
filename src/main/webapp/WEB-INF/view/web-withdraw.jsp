@@ -21,7 +21,7 @@
                                     data-bs-toggle="modal" data-bs-target="#newBankModal" type="button">
                                     <i class="bi bi-bank me-2"></i>New account
                                 </a>
-                                <a href="#!" class="link-secondary fs-7 ">View history <i
+                                <a href="/web/history-withdraw" class="link-secondary fs-7 ">View history <i
                                         class="bi bi-arrow-right-short"></i></a>
                             </div>
                             <!-- Modal -->
