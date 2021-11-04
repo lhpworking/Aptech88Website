@@ -61,3 +61,20 @@ function exportData(filename) {
   link.click();
 }
 
+// swiper
+var swiper = new Swiper(".swiper", {
+  // Optional parameters
+  autoplay: {
+    delay: 3000,
+  },
+  effect: "fade",
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+  },
+});

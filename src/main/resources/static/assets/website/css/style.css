@@ -27,7 +27,8 @@ body {
   overflow       : auto;
 }
 
-.title-leagues {
+.title-leagues,
+.title-news {
   border-left: 5px solid #ddc179;
   padding    : 10px;
 }
@@ -103,35 +104,100 @@ td {
   border: 2px solid #ddc179;
 }
 
-.text-primary {
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin            : 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.swiper {
+  width : 100%;
+  height: 90vh;
+}
+
+.swiper-slide {
+  position  : relative;
+  text-align: center;
+
+  /* Center slide text vertically */
+  display                : -webkit-box;
+  display                : -ms-flexbox;
+  display                : -webkit-flex;
+  display                : flex;
+  -webkit-box-pack       : center;
+  -ms-flex-pack          : center;
+  -webkit-justify-content: center;
+  justify-content        : center;
+  -webkit-box-align      : center;
+  -ms-flex-align         : center;
+  -webkit-align-items    : center;
+  align-items            : center;
+}
+
+.swiper-slide img {
+  display   : block;
+  width     : 100%;
+  height    : 100%;
+  object-fit: cover;
+
+
+}
+
+.swiper-content {
+  position: absolute;
+  color   : white;
+  z-index : 99;
+
+}
+
+.swiper-slide-shadow {
+  opacity         : 1 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
   color: #ddc179 !important;
 }
 
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin            : 0;
+.swiper-pagination-bullet {
+  background-color: #ddc179 !important;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
+.swiper-pagination-bullet.swiper-pagination-bullet-active-main {
+  width        : 20px !important;
+  border-radius: 5px;
+  transition   : all .2s linear;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin            : 0;
+.news-content {
+  display           : -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow          : hidden;
+  text-overflow     : ellipsis;
+  word-break        : break-word;
+  flex              : 1;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
+.news img {
+  object-fit: cover;
+  max-width : 100%;
+  height    : 100%;
+}
+
+.instruct-cash {
+  background: url(../img/DPWD-0118-Background.jpg);
+  object-fit: cover;
+  height    : 100%;
 }
 
 .modal-backdrop {
-  z-index: 0 !important;
+  z-index: 99 !important;
 }

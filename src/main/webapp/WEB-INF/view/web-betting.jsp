@@ -1,9 +1,6 @@
 <%@include file="../common/website/web-header.jspf"%>
-
-
  <main class="main-content position-relative border-radius-lg  ">
         <div class="container-fluid ">
-
             <div class="row">
                 <!-- popular leagues -->
                 <div class="col-lg-2 mb-2 mb-lg-0  d-lg-block   col-lg-2  bg-secondary  p-3">
