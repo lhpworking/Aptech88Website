@@ -9,70 +9,93 @@
         Aptech88 - website
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <%-- swiper --%>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- CSS Files -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/assets/website/css/style.css">
-
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../assets/website/js/cookie.js"></script>
+<script>
+    checkUserProfile();
+
+    function checkUserProfile() {
+        if (getCookie('profileUser') == null) {
+            var pathUserWant = window.location.pathname;
+            if (getCookie('pathUserWant') == null) {
+                setCookie('pathUserWant', pathUserWant, 1);
+            }
+            $(document).ready(function() {
+                $('#loginAndRegisterHeader').show();
+                $('#notificationHeader').css('display', 'none');
+                $('#inforuserHeader').css('display', 'none');
+            })
+        } else {
+            // if loged
+            eraseCookie('pathUserWant');
+            var user = JSON.parse(getCookie('profileUser'));
+            $(document).ready(function() {
+                $('#loginAndRegisterHeader').css('display', 'none');
+                $('#notificationHeader').css('display', 'block');
+                $('#inforuserHeader').css('display', 'block');
+                $('#nameDropdown').html(user.name);
+                $('#miniAccountMoney').html(formatter.format(user.wallet[0].amount));
+            })
+        }
+    }
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+</script>
 
 <body class="g-sidenav-show">
     <!-- header -->
     <header>
-        <nav class="navbar navbar-main navbar-expand-lg p-0 shadow-sm bg-dark text-white border-radius-xl "
-        navbar-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg p-0 shadow-sm bg-dark text-white border-radius-xl " navbar-scroll="true">
             <div class="container p-2 align-items-center">
                 <a class="logo-header navbar-brand" href="/web">
-                    <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150"
-                        height="50" alt="logo">
+                    <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150" height="50" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                    aria-controls="offcanvasNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <i class="bi bi-list fs-1 text-white"></i>
                 </button>
-                <div class="offcanvas bg-dark offcanvas-end flex-column justify-content-between" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas bg-dark offcanvas-end flex-column justify-content-between" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <a class="offvanvas-title" href="/webpage">
-                            <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150"
-                            height="50" alt="logo">
+                            <img src="/assets/website/img/aptech-logo.svg" class="navbar-brand-img m-auto " width="150" height="50" alt="logo">
                         </a>
                         <a type="button" class="link-secondary" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg fs-3 "></i></a>
-                        </div>
-                    <div class="offcanvas-body justify-content-end">
+                    </div>
+                    <div class="offcanvas-body justify-content-end" id="loginAndRegisterHeader">
                         <!-- auth block -->
                         <div class="auth-block">
                             <!-- login block -->
                             <div class="login-block d-lg-flex flex-lg-row flex-column  align-items-center gap-lg-2 gap-2  ">
                                 <!-- input account -->
                                 <div class="form-group">
-                                    <input type="text" name="" id="" class="form-control mb-lg-0 mb-3"
-                                        placeholder="Email or phone number" aria-describedby="helpId">
+                                    <input type="text" name="" id="usernameLogin" class="form-control mb-lg-0 mb-3" placeholder="Username" aria-describedby="helpId">
                                 </div>
                                 <!-- input password -->
                                 <div class="form-group">
-                                    <input type="password" name="" id="" class="form-control" placeholder="Password"
-                                        aria-describedby="helpId">
+                                    <input type="password" name="" id="passwordLogin" class="form-control" placeholder="Password" aria-describedby="helpId">
                                 </div>
                                 <!-- button login -->
                                 <div class="form-group mt-3 mt-lg-0 mb-3 mb-lg-0">
-                                    <button name="" id="" class="btn btn-primary w-100">Log In</button>
+                                    <button name="" id="btnLogin" onclick="login();" class="btn btn-primary w-100">Log In</button>
                                 </div>
                                 <%-- button sign up --%>
                                     <div class="form-group ">
-                                        <button  id="" class="btn btn-secondary w-100" data-bs-toggle="modal"
-                                            data-bs-target="#modelId">Sign up</button>
-                                        <div class="modal fade  " id="modelId" tabindex="-1" role="dialog"
-                                            aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <button id="" class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modelId">Sign up</button>
+                                        <div class="modal fade  " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -80,35 +103,36 @@
                                                             <h4 class="modal-title">Register</h4>
                                                             <p class="fs-7 text-muted">It's quick and easy.</p>
                                                         </div>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body text-black">
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col col-lg-6 col-md-6">
-                                                                    <input type="text" name="" id="" class="form-control"
-                                                                        placeholder="First name" aria-describedby="helpId"
-                                                                        required>
+                                                                    <input type="text" name="" id="firstName" class="form-control" placeholder="First name" aria-describedby="helpId" required>
                                                                 </div>
                                                                 <div class="col col-lg-6 col-md-6">
-                                                                    <input type="text" name="" id="" class="form-control"
-                                                                        placeholder="Last name" aria-describedby="helpId"
-                                                                        required>
+                                                                    <input type="text" name="" id="lastName" class="form-control" placeholder="Last name" aria-describedby="helpId" required>
                                                                 </div>
                                                             </div>
                                                             <div class="row pt-3">
                                                                 <div class="col col-lg-12 col-md-12">
-                                                                    <input type="email" name="" id="" class="form-control"
-                                                                        placeholder="Email or phone number"
-                                                                        aria-describedby="helpId" required>
+                                                                    <input type="text" name="" id="username" class="form-control" placeholder="Username" aria-describedby="helpId" required>
                                                                 </div>
                                                             </div>
                                                             <div class="row pt-3">
                                                                 <div class="col col-lg-12 col-md-12">
-                                                                    <input type="password" name="" id=""
-                                                                        class="form-control" placeholder="New password"
-                                                                        aria-describedby="helpId" required>
+                                                                    <input type="email" name="" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div class="col col-lg-12 col-md-12">
+                                                                    <input type="text" name="" id="phone" class="form-control" placeholder="Phone" aria-describedby="helpId" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row pt-3">
+                                                                <div class="col col-lg-12 col-md-12">
+                                                                    <input type="password" name="" id="password" class="form-control" placeholder="New password" aria-describedby="helpId" required>
                                                                     <small class="text-muted">Create a Password of between 6
                                                                         –
                                                                         15
@@ -118,21 +142,16 @@
                                                             </div>
                                                             <div class="row pt-3">
                                                                 <div class="col col-lg-12 col-md-12">
-                                                                    <input type="password" name="" id=""
-                                                                        class="form-control" placeholder="Confirm password"
-                                                                        aria-describedby="helpId" required>
+                                                                    <input type="password" name="" id="confirmPassword" class="form-control" placeholder="Confirm password" aria-describedby="helpId" required>
                                                                 </div>
                                                             </div>
                                                             <div class="row pt-3">
                                                                 <p>Please take time to read our <span><a href="/web/responsible-gaming">Responsible Gaming.</a></span>
                                                                 </p>
-                                                                <div
-                                                                    class="col col-lg-12 col-md-12 d-flex align-items-center ">
+                                                                <div class="col col-lg-12 col-md-12 d-flex align-items-center ">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="" id="flexCheckDefault">
-                                                                        <label class="form-check-label"
-                                                                            for="flexCheckDefault">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                        <label class="form-check-label" for="flexCheckDefault">
                                                                             Send me updates and promotions as per <a href=""
                                                                                 class="text-primary">Privacy Policy</a>
                                                                         </label>
@@ -140,13 +159,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row pt-1">
-                                                                <div
-                                                                    class="col col-lg-12 col-md-12 d-flex align-items-center ">
+                                                                <div class="col col-lg-12 col-md-12 d-flex align-items-center ">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="" id="flexCheckDefault">
-                                                                        <label class="form-check-label"
-                                                                            for="flexCheckDefault">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                        <label class="form-check-label" for="flexCheckDefault">
                                                                             I am at least 18 years of age and I have read
                                                                             the <a href="" class="text-primary">Terms &
                                                                                 Conditions</a>
@@ -157,7 +173,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-primary">Sign Up</button>
+                                                        <button type="button" onclick="createAccount();" id="registerButton" class="btn btn-primary">Sign Up</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -186,32 +202,25 @@
                         </div>
                     </div>
                 </div>
-                    <!-- logged block -->
-                    <div class="auth-block d-flex align-items-center gap-3">
+                <!-- logged block -->
+                <div class="auth-block d-flex align-items-center gap-3">
                     <!-- notification -->
-                    <div class="dropdown ">
-                        <a type="button" class="text-decoration-none d-flex link-light  align-items-center"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                    <div class="dropdown " id="notificationHeader" style="display: block;">
+                        <a type="button" class="text-decoration-none d-flex link-light  align-items-center" id="dropdownMenuButton1" data-bs-toggle="dropdown">
                             <i class="bi bi-bell fs-5"></i> <span class="badge bg-secondary">3</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow"
-                            aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="dropdownMenuButton1">
                             <li class="nav-item p-1 ">
                                 <div class="toast show " role="alert" aria-live="assertive" aria-atomic="true">
                                     <div class="toast-header">
                                         <img src="..." class="rounded me-2" alt="...">
                                         <strong class="me-auto">Bootstrap</strong>
                                         <small>11 mins ago</small>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                     <div class="toast-body text-wrap ">
                                         <p>
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
+                                            Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message.
                                         </p>
                                     </div>
                                 </div>
@@ -222,17 +231,11 @@
                                         <img src="..." class="rounded me-2" alt="...">
                                         <strong class="me-auto">Bootstrap</strong>
                                         <small>11 mins ago</small>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                     <div class="toast-body text-wrap ">
                                         <p>
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-
-                                            Hello, world! This is a toast message.
+                                            Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message.
                                         </p>
                                     </div>
                                 </div>
@@ -243,17 +246,11 @@
                                         <img src="..." class="rounded me-2" alt="...">
                                         <strong class="me-auto">Bootstrap</strong>
                                         <small>11 mins ago</small>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                     <div class="toast-body ">
                                         <p>
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-                                            Hello, world! This is a toast message.
-
-                                            Hello, world! This is a toast message.
+                                            Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message. Hello, world! This is a toast message.
                                         </p>
                                     </div>
                                 </div>
@@ -262,42 +259,36 @@
                     </div>
                     <!-- end notification -->
                     <!-- info user -->
-                    <div class="dropdown ">
-                        <a class=" text-decoration-none link-light dropdown-toggle" type="button"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="dropdown " id="inforuserHeader" style="display: block;">
+                        <a class=" text-decoration-none link-light dropdown-toggle" type="button" id="nameDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Ly Hung Phat
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 bg-light text-capitalize "
-                            aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 bg-light text-capitalize " aria-labelledby="dropdownMenuButton1">
                             <li class="d-flex  align-items-center  flex-column justify-content-between m-3 gap-3">
                                 <!-- account betting -->
-                                <div
-                                    class="account-betting d-flex justify-content-between align-items-center gap-3 w-100">
+                                <div class="account-betting d-flex justify-content-between align-items-center gap-3 w-100">
                                     <div class="text-muted">
                                         <h5 class="dropdown-item p-0 text-muted fs-7">Account betting</h5>
-                                        <p class="dropdown-item p-0 m-0">100.000.000</p>
+                                        <p class="dropdown-item p-0 m-0" id="miniAccountMoney"></p>
                                     </div>
                                     <div class="form-group">
-                                    <a href="/web/recharge">
-                                        <button class="btn btn-primary shadow-sm" id="" name="btn"      
-                                            value="">Recharge</button>
-                                    </a>
+                                        <a href="/web/recharge">
+                                            <button class="btn btn-primary shadow-sm" id="" name="btn" value="">Recharge</button>
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- account withdraw -->
-                                <div
-                                    class="account-withdraw d-flex justify-content-between align-items-center gap-3 w-100">
+                                <!-- <div class="account-withdraw d-flex justify-content-between align-items-center gap-3 w-100">
                                     <div class="text-muted">
                                         <h5 class="dropdown-item p-0 text-muted fs-7">Account withdraw</h5>
                                         <p class="dropdown-item p-0 m-0">100.000.000</p>
                                     </div>
                                     <div class="form-group">
                                         <a href="/web/withdraw">
-                                        <button class="btn btn-white shadow-sm" id="" name="btn"
-                                            value="">Withdraw</button>
+                                            <button class="btn btn-white shadow-sm" id="" name="btn" value="">Withdraw</button>
                                         </a>
                                     </div>
-                                </div>
+                                </div> -->
                             </li>
                             <li>
                                 <hr class="dropdown-divider bg-light">
@@ -306,7 +297,7 @@
                                     account</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-check me-2"></i>Verify
                                     account</a></li>
-                            <li><a class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i> Log out </a></li>
+                            <li><a class="dropdown-item" href="javascript:LogOut();"><i class="bi bi-box-arrow-right me-2"></i> Log out </a></li>
                         </ul>
                     </div>
                     <!-- end info user -->
@@ -314,3 +305,74 @@
             </div>
         </nav>
     </header>
+    <script src="../assets/website/js/LoginAndRegister.js"></script>
+
+    <script>
+        function closeModal() {
+            $('#modelId').modal('toggle');
+        }
+
+        function LogOut() {
+            eraseCookie('profileUser');
+            eraseCookie('pathUserWant');
+            window.location.href = '/web';
+        }
+
+        function createAccount() {
+            var formRegister = {
+                firstName: $('#firstName').val(),
+                lastName: $('#lastName').val(),
+                phonenumber: $('#phone').val(),
+                username: $('#username').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                confirmPassword: $('#confirmPassword').val()
+            }
+            if (checkEmpty(formRegister) == true) {
+                if (formRegister.password == formRegister.confirmPassword) {
+                    createAccountApi(formRegister);
+                    closeModal();
+                } else {
+                    alert('Confirm password is incorrect !!');
+                }
+            }
+        }
+
+        function login() {
+            var recentPath = window.location.pathname;
+            var pathUserWantDirect = getCookie('pathUserWant');
+            var formLogin = {
+                username: $('#usernameLogin').val(),
+                password: $('#passwordLogin').val()
+            }
+            if (checkEmpty(formLogin) == true) {
+                loginApi(formLogin).then((user) => {
+                    // don't get payment because date of payment maybe make cookie maximum string lenght => error when save cookie.
+                    user.wallet[0].payment = null;
+
+                    setCookie('profileUser', JSON.stringify(user), 1);
+                    alert("Login success");
+
+                    if (recentPath != pathUserWantDirect) {
+                        window.location.href = pathUserWantDirect;
+                    }
+                    checkUserProfile();
+                }).catch(err => {
+                    alert(err.responseText);
+                })
+            }
+        }
+
+        function checkEmpty(object) {
+            for (const value in object) {
+                if (Object.hasOwnProperty.call(object, value)) {
+                    const element = object[value];
+                    if (element == "") {
+                        alert('Please enter full information !!');
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    </script>
