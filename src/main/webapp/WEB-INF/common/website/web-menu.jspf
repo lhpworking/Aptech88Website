@@ -76,11 +76,6 @@
                     <div><a class="dropdown-item p-2 fs-5" href="/web/user-profile"><i
                                                 class="bi bi-person-bounding-box me-2"></i>View
                                             account</a></div>
-
-                    <div><a class="dropdown-item p-2 fs-5 " href="#"><i
-                                                class="bi bi-person-check me-2"></i>Verify
-                                            account</a></div>
-
                     <div class="accordion " id="accordionExample">
                         <div class="accordion-item bg-light border-0 ">
                             <a class=" dropdown-item p-2 fs-5 dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#collapseOne">
@@ -88,6 +83,9 @@
                             </a>
                             <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body p-2">
+                                    <div><a class="dropdown-item p-2 fs-5  " href="/web/history-bet"><i
+                                                                class="bx bx-receipt me-2"></i>betting
+                                                        </a></div>
                                     <div><a class="dropdown-item p-2 fs-5  " href="/web/history-recharge"><i
                                                                 class="bi bi-cash-stack me-2"></i>Recharge
                                                         </a></div>

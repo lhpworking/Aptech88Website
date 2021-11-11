@@ -63,10 +63,10 @@
                     </div>
                 </div>
             </div>
-            <h5 class="title-news bg-secondary p-2 text-white"> News</h5>
+            <h5 class="title-news bg-secondary p-2 text-white d-flex align-items-center gap-2"> News <i class='bx bx-news' ></i> </h5>
             <div class="news-container">
                 <div class="news-block d-lg-flex d-block gap-3 ">
-                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -83,7 +83,7 @@
                         </div>
 
                     </div>
-                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -100,7 +100,7 @@
                         </div>
 
                     </div>
-                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card  flex-lg-column flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="news-block  ">
-                    <div class="news card flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -135,7 +135,7 @@
                         </div>
 
                     </div>
-                    <div class="news card  flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card  flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -152,7 +152,7 @@
                         </div>
 
                     </div>
-                    <div class="news card  flex-row align-items-center  p-3 border-0 shadow-sm mb-2">
+                    <div class="news card  flex-row align-items-center  p-3 border-0 shadow-sm mb-3">
                         <div class="me-lg-2 pb-2">
                             <img width="200" src="https://source.unsplash.com/random" alt="">
                         </div>
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="link-secondary"> Load more</a>
+                <a class="link-secondary"> Load more </a>
             </div>
     </main>
 <%@include file="../common/website/web-footer.jspf"%>
