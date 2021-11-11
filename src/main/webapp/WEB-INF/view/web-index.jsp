@@ -3,33 +3,36 @@
         <div class="swiper ">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                    <div class="swiper-overlay"></div>
                     <img src="https://source.unsplash.com/random" alt="">
                     <div class="swiper-content">
                         <h1 class="fw-bold">Manchester United</h1>
                         <h2 class="text-warning">vs</h2>
                         <h1 class="fw-bold">Chelsea</h1>
                         <h5>04/11/2021, 00:45 AM (GMT+7)</h5>
-                        <a class="btn btn-warning fs-5 mt-3 ">Watch Bets</a>
+                        <a class="btn btn-warning fs-5 mt-3 " href="/web/betting">Watch Bets</a>
                     </div>
                 </div>
                 <div class="swiper-slide">
+                    <div class="swiper-overlay"></div>
                     <img src="https://source.unsplash.com/featured?soccer" alt="">
                     <div class="swiper-content">
                         <h1 class="fw-bold">Manchester United</h1>
                         <h2 class="text-warning">vs</h2>
                         <h1 class="fw-bold">Chelsea</h1>
                         <h5>04/11/2021, 00:45 AM (GMT+7)</h5>
-                        <a class="btn btn-warning fs-5 mt-3 ">Watch Bets</a>
+                        <a class="btn btn-warning fs-5 mt-3 " href="/web/betting">Watch Bets</a>
                     </div>
                 </div>
                 <div class="swiper-slide">
+                    <div class="swiper-overlay"></div>
                     <img src="https://source.unsplash.com/featured?football" alt="">
                     <div class="swiper-content">
                         <h1 class="fw-bold">Manchester United</h1>
                         <h2 class="text-warning">vs</h2>
                         <h1 class="fw-bold">Chelsea</h1>
                         <h5>04/11/2021, 00:45 AM (GMT+7)</h5>
-                        <a class="btn btn-warning fs-5 mt-3 ">Watch Bets</a>
+                        <a class="btn btn-warning fs-5 mt-3 " href="/web/betting">Watch Bets</a>
                     </div>
                 </div>
             </div>

@@ -193,11 +193,24 @@ input[type="number"] {
 }
 
 .instruct-cash {
-  background: url(../img/DPWD-0118-Background.jpg);
+  background: url(/assets/admin/img/DPWD-0118-Background.jpg);
   object-fit: cover;
   height    : 100%;
 }
 
 .modal-backdrop {
   z-index: 99 !important;
+}
+
+.swiper-overlay {
+  position        : absolute;
+  width           : 100%;
+  height          : 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sponsor-block-item--img img {
+  width       : 150px;
+  aspect-ratio: 1/1;
+  object-fit  : contain;
 }

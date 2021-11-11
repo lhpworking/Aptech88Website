@@ -6,7 +6,7 @@
                 <div class="col-lg-2 mb-2 mb-lg-0  d-lg-block   col-lg-2  bg-secondary  p-3">
                     <!-- in-play block -->
                     <div class="leagues-block mb-3">
-                        <h5 class="title-leagues bg-light w-100 align-items-center">All Popular Leagues <i class="bi bi-collection-play-fill text-primary float-end"></i></h5>
+                        <h5 class="title-leagues bg-light w-100 align-items-center">All Popular Leagues <i class="bi bi-collection-play-fill text-warning float-end"></i></h5>
                         <!-- europe -->
                         <div class="accordion">
                             <a class=" accordion-name nav-link bg-light  text-dark fw-bold"><img
@@ -745,7 +745,7 @@
                             aria-labelledby="v-pills-europa-tab">1</div>
                     </div>
                     <%-- footer --%>
-                    <%@include file="../common/website/web-footer.jspf"%>       
+                   <%@include file="../common/website/web-footer.jspf"%>
                 </div>
                 <!-- end screen -->
             </div>
