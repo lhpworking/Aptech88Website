@@ -57,6 +57,10 @@ td {
   border-collapse: collapse;
 }
 
+table td {
+  height: 50px;
+}
+
 .rounded-md {
   border-radius: 10px;
 }
@@ -243,4 +247,17 @@ input[type="number"] {
   transform : translateY(-5px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
   transition: transform 200ms ease;
+}
+
+.payment-block-item--method ul li a i,
+.contact-block-item ul li a i {
+  filter: grayscale(100%);
+}
+
+.payment-block-item--method ul li a i:hover,
+.contact-block-item ul li a i:hover {
+  filter: grayscale(0%);
+}
+.league-choose-group button{
+  background: #fff;
 }
