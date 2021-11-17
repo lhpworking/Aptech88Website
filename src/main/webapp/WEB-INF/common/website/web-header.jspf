@@ -26,6 +26,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../assets/website/js/cookie.js"></script>
 <script>
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
     checkUserProfile();
 
     function checkUserProfile() {
@@ -184,9 +208,9 @@
                             <div class="login-block d-flex  align-items-center justify-content-between">
                                 <!--input account -->
                                 <div class="form-group">
-                                    <a type="button" class="fs-7 text-warning"  data-bs-toggle="modal" data-bs-target="#exampleModal">Forgotten password?</a>
+                                    <a type="button" class="fs-7 text-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgotten password?</a>
                                 </div>
-                                    <!-- Modal -->
+                                <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -194,34 +218,34 @@
                                                 <h5 class="modal-title text-dark" id="exampleModalLabel">Change the password</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <div class="row ">
-                                                    <div class="col col-lg-12 col-md-12">
-                                                        <input type="email" name="" id="" class="form-control" placeholder="email" aria-describedby="helpId" required>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="row ">
+                                                        <div class="col col-lg-12 col-md-12">
+                                                            <input type="email" name="" id="" class="form-control" placeholder="email" aria-describedby="helpId" required>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row pt-3">      
-                                                    <div class="col col-lg-12 col-md-12">
-                                                        <input type="tel" name="" id="" class="form-control" placeholder="phone number" aria-describedby="helpId" required>
+                                                    <div class="row pt-3">
+                                                        <div class="col col-lg-12 col-md-12">
+                                                            <input type="tel" name="" id="" class="form-control" placeholder="phone number" aria-describedby="helpId" required>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row pt-3">
-                                                    <div class="col col-lg-12 col-md-12">
-                                                        <input type="password" name="" id="" class="form-control" placeholder="old password" aria-describedby="helpId" required>
+                                                    <div class="row pt-3">
+                                                        <div class="col col-lg-12 col-md-12">
+                                                            <input type="password" name="" id="" class="form-control" placeholder="old password" aria-describedby="helpId" required>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row pt-3">
-                                                    <div class="col col-lg-12 col-md-12">
-                                                        <input type="password" name="" id="" class="form-control" placeholder="new passord" aria-describedby="helpId" required>
+                                                    <div class="row pt-3">
+                                                        <div class="col col-lg-12 col-md-12">
+                                                            <input type="password" name="" id="" class="form-control" placeholder="new passord" aria-describedby="helpId" required>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary">Change</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Change</button>
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
                                 <div class="fs-7 mb-3 mb-lg-0 d-none d-lg-block">

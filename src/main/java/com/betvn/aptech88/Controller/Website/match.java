@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class bettingPage {
-    @RequestMapping("/web/betting")
-    public String index(@RequestParam("match") Integer match) {
-        return "web-betting";
+public class match {
+    @RequestMapping("/web/match")
+    public String index(@RequestParam("league") Integer league) {
+        return "web-choose-match";
     }
 }
