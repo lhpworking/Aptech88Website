@@ -72,7 +72,7 @@
             $.each(res, function(index, league) {
                 rows += `<div class="col-lg-4 col-12 ">` +
                     `<div class="league-choose-group mb-3  d-flex shadow rounded-md overflow-hidden">` +
-                    `<button class="btn btn-outline-dark d-inline-flex align-items-center border-0  p-3 w-100" data-id="` + league.id + `" onclick="goToFixtures(this);" data-bs-toggle="button"> <img class="me-3"
+                    `<button class="btn btn-outline-dark d-inline-flex align-items-center border-0  p-3 w-100" data-id="` + league.id + `" onclick="goToFixtures(this);"> <img class="me-3"
                                         src="` + league.logo + `" alt="" width="100" height="100">` +
                     league.name +
                     `</button>` +

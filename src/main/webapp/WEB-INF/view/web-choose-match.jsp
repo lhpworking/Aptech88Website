@@ -30,54 +30,75 @@
             })
         }
 
+        Date.prototype.addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
         getFixture(fixture).then(res => {
+            var LIMIT_DAY = 3;
             var rows = `<div class="row mb-3 flex-lg-row flex-column " id="matchs">`;
+            var date = new Date();
+
+            var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            date.setDate(date.getDate() + LIMIT_DAY);
+            var dateLimit = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+            var count = 0;
             $.each(res, function(index, match) {
-                rows += `<div class="col-lg-4 col-12 mb-3">` +
-                    `<div class="league-choose-group h-100  d-flex shadow rounded-md overflow-hidden">` +
-                    `<button class="btn btn-outline-dark d-inline-flex align-items-center border-0  p-3 w-100" data-bs-toggle="button" data-idMatch="` + match.id + `" onclick="goToMatch(this);">`;
-                var away = {
-                    id: match.away
-                };
-                $.ajax({
-                    method: 'post',
-                    url: 'http://localhost:8000/GetTeamById',
-                    contentType: 'application/json',
-                    async: false,
-                    data: JSON.stringify(away),
-                    success: function(team) {
-                        rows += `<div>` +
-                            `<img  src="` + team.logo + `" alt="" width="100" height="100">` +
-                            `<div>` +
-                            `<span style="font-size: 16px;">` + team.name + `</span>` +
-                            `</div>` +
-                            `</div>`;
-                    }
-                })
-                rows += `<div style="width: 50%;"><img src="/assets/website/img/versus.png" alt="" style="width: 20%;"><div>` + match.time + `</div></div>`;
-                var home = {
-                    id: match.home
-                };
-                $.ajax({
-                    method: 'post',
-                    url: 'http://localhost:8000/GetTeamById',
-                    contentType: 'application/json',
-                    async: false,
-                    data: JSON.stringify(home),
-                    success: function(team) {
-                        rows += `<div>` +
-                            `<img src="` + team.logo + `" alt="" width="100" height="100">` +
-                            `<div>` +
-                            `<span style="font-size: 16px;">` + team.name + `</span>` +
-                            `</div>` +
-                            `</div>`;
-                    }
-                })
-                rows += `</button></div></div>`;
+                if (Date.parse(match.date) >= Date.parse(currentDate) && Date.parse(match.date) <= Date.parse(dateLimit)) {
+                    console.log(match.date);
+                    rows += `<div class="col-lg-4 col-12 mb-3">` +
+                        `<div class="league-choose-group h-100  d-flex shadow rounded-md overflow-hidden">` +
+                        `<button class="btn btn-outline-dark d-inline-flex align-items-center border-0  p-3 w-100" data-idMatch="` + match.id + `" onclick="goToMatch(this);">`;
+                    var away = {
+                        id: match.away
+                    };
+                    $.ajax({
+                        method: 'post',
+                        url: 'http://localhost:8000/GetTeamById',
+                        contentType: 'application/json',
+                        async: false,
+                        data: JSON.stringify(away),
+                        success: function(team) {
+                            rows += `<div>` +
+                                `<img  src="` + team.logo + `" alt="" width="100" height="100">` +
+                                `<div>` +
+                                `<span style="font-size: 16px;">` + team.name + `</span>` +
+                                `</div>` +
+                                `</div>`;
+                        }
+                    })
+                    rows += `<div style="width: 50%;"><img src="/assets/website/img/versus.png" alt="" style="width: 20%;"><div>` + match.time + `</div></div>`;
+                    var home = {
+                        id: match.home
+                    };
+                    $.ajax({
+                        method: 'post',
+                        url: 'http://localhost:8000/GetTeamById',
+                        contentType: 'application/json',
+                        async: false,
+                        data: JSON.stringify(home),
+                        success: function(team) {
+                            rows += `<div>` +
+                                `<img src="` + team.logo + `" alt="" width="100" height="100">` +
+                                `<div>` +
+                                `<span style="font-size: 16px;">` + team.name + `</span>` +
+                                `</div>` +
+                                `</div>`;
+                        }
+                    })
+                    rows += `</button></div></div>`;
+                    count++;
+                }
+
             });
 
             rows += `</div>`;
-            $('#matchs').replaceWith(rows);
+            if (count > 0) {
+                $('#matchs').replaceWith(rows);
+            }
         })
     </script>
     <main class="main-content position-relative border-radius-lg  ">
@@ -97,7 +118,10 @@
                 </div>
                 <div class="league-choose-form ">
                     <div class="row mb-3 flex-lg-row flex-column " id="matchs">
-                        <div class="col-lg-4 col-12">
+                        <div>
+                            <h2>We will update new match as soon as posible</h2>
+                        </div>
+                        <!-- <div class="col-lg-4 col-12">
                             <div class="league-choose-group mb-3  d-flex shadow rounded-md overflow-hidden">
                                 <button class="btn btn-outline-dark d-inline-flex align-items-center border-0  p-3 w-100" data-bs-toggle="button"> 
                                     <div>
@@ -162,7 +186,7 @@
                                     </div>
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

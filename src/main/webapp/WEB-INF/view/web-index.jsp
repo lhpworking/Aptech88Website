@@ -165,7 +165,6 @@
             console.log(date.toLocaleTimeString(response.countryCode));
 
         }, "jsonp");
-
         // $.ajax({
         //     method: 'get',
         //     url: 'http://localhost:8000/LeagueUpdate',
@@ -173,37 +172,19 @@
         //         alert(JSON.stringify(data));
         //     }
         // })
-
-        // var param = {
-        //     fromDate: '2021-11-17',
-        //     toDate: '2021-11-30',
-        //     status: true
-        // }
-        // $.ajax({
-        //     method: 'post',
-        //     url: 'http://localhost:8000/FixtureUpdate',
-        //     contentType: 'application/json',
-        //     data: JSON.stringify(param),
-        //     success: function(data) {
-        //         alert(JSON.stringify(data));
-        //     }
-        // })
-
-        // $.ajax({
-        //     method: 'GET',
-        //     url: 'https://api-football-v1.p.rapidapi.com/v3/odds?fixture=663665&bookmaker=6',
-        //     headers: {
-        //         'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-        //         'x-rapidapi-key': 'c20af5d45emsh3116f32c09643fcp1848d8jsn2559bfc29c69'
-        //     },
-        //     'async': true,
-        //     crossDomain: true,
-        //     success: function(data) {
-        //         alert(JSON.stringify(data.response[0].bookmakers[0].bets));
-        //     }
-        // }).done(function(res) {
-        //     console.log(res);
-        //     console.log(res.response[0].bookmakers[0].bets);
-        // });
+        var param = {
+                fromDate: '2021-11-01',
+                toDate: '2021-11-30',
+                status: true
+            }
+            // $.ajax({
+            //     method: 'post',
+            //     url: 'http://localhost:8000/FixtureUpdate',
+            //     contentType: 'application/json',
+            //     data: JSON.stringify(param),
+            //     success: function(data) {
+            //         alert(JSON.stringify(data));
+            //     }
+            // })
     </script>
     <%@include file="../common/website/web-footer.jspf"%>
