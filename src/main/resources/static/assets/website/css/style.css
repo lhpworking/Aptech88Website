@@ -33,12 +33,6 @@ body {
   padding    : 10px;
 }
 
-.panel {
-  display         : none;
-  background-color: white;
-  overflow        : hidden;
-}
-
 .nav-link:hover {
   background-color: #e6e6e6;
 }
@@ -258,6 +252,7 @@ input[type="number"] {
 .contact-block-item ul li a i:hover {
   filter: grayscale(0%);
 }
-.league-choose-group button{
+
+.league-choose-group button {
   background: #fff;
 }
