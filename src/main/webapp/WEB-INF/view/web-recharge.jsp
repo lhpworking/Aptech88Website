@@ -23,29 +23,29 @@
                                 <div class="method-block card shadow-sm p-3">
                                     <ul class="menu-method list-unstyled">
                                         <li class="menu-method-item  p-3 d-flex align-items-center gap-3">
-                                            <img src="https://source.unsplash.com/random" width="50" height="50" alt="">
+                                            <img  src="../assets/website/img/paypal.png" width="100" height="100" alt="">
                                             <div class="">
                                                 <h5 class="menu-method-link m-0">Paypal</h5>
                                                 <p class="fs-7 text-muted m-0"> Free</p>
                                             </div>
                                         </li>
                                         <li class="menu-method-item   p-3 d-flex align-items-center gap-3 mt-3">
-                                            <img src="https://source.unsplash.com/random" width="50" height="50" alt="">
+                                            <img src="../assets/website/img/momopay.png" width="100" height="100" alt="">
                                             <div class="method-info">
-                                                <h5 class="menu-method-link m-0">Zalo Pay</h5>
-                                                <p class="fs-7 text-muted m-0"> Free</p>
-                                            </div>
-                                        </li>
-                                        <li class="menu-method-item p-3 d-flex align-items-center gap-3 mt-3">
-                                            <img src="https://source.unsplash.com/random" width="50" height="50" alt="">
-                                            <div class="">
                                                 <h5 class="menu-method-link m-0">Momo Pay</h5>
                                                 <p class="fs-7 text-muted m-0"> Free</p>
                                             </div>
                                         </li>
-                                        <li class="menu-method-item  p-3 d-flex align-items-center gap-3 mt-3">
-                                            <img src="https://source.unsplash.com/random" width="50" height="50" alt="">
+                                        <li class="menu-method-item p-3 d-flex align-items-center gap-3 mt-3">
+                                            <img src="../assets/website/img/zalopay.png" width="100" height="100" alt="">
                                             <div class="">
+                                                <h5 class="menu-method-link m-0">Zalo Pay</h5>
+                                                <p class="fs-7 text-muted m-0"> Free</p>
+                                            </div>
+                                        </li>
+                                        <li class="menu-method-item  p-3 d-flex align-items-center gap-3 mt-3">
+                                            <i class="bi bi-bank2 me-2 " style="font-size: 90px"></i>
+                                            <div >
                                                 <h5 class="menu-method-link m-0">Bank Transfer</h5>
                                                 <p class="fs-7 text-muted m-0"> Free</p>
                                             </div>
@@ -61,7 +61,7 @@
                             <hr>
                             <div class=" card border-0 shadow-sm p-3 d-flex flex-column gap-2">
                                 <div class="row">
-                                    <h4 class="m-0"><i class="bi bi-bank2 me-2"></i>Momo Pay</h4>
+                                    <h4 class="m-0"> <img style=" object-fit: contain; margin-right:10px;" src="../assets/website/img/paypal.png" width="50" height="50" alt="">Paypal Pay</h4>
                                     <p class="text-muted fs-7 ">Processing Time: 5 minutes</p>
                                 </div>
                                 <div class="row">

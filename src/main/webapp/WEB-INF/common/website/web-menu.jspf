@@ -39,7 +39,7 @@
     <div class="info-block">
         <div class="card rounded shadow-sm bg-light p-2">
             <div class="img-user p-3 d-flex align-items-center flex-column justify-content-center">
-                <img src="https://source.unsplash.com/user" class="rounded-circle" alt="" width="150" height="150">
+                <img src="../assets/website/img/bayern.png" class="rounded-circle" alt="" width="150" height="150">
                 <h5 class="user-name mt-3" id="nameMenu"></h5>
             </div>
             <div class="menu-user ">
