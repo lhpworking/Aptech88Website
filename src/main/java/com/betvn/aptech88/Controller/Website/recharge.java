@@ -26,8 +26,8 @@ public class recharge {
         float totall = Float.parseFloat(total);
 		try {
 			Payment payment = service.createPayment(totall, "USD", "paypal",
-					"sale", "payment", "http://localhost:8080/" + "fail",
-					"http://localhost:8080/" + "web/recharge?total=" + totall);
+					"sale", "payment", "http://localhost:8000/" + "fail",
+					"http://localhost:8000/" + "web/recharge?total=" + totall);
 			for(Links link:payment.getLinks()) {
 				if(link.getRel().equals("approval_url")) {
 					return "redirect:"+ link.getHref();
