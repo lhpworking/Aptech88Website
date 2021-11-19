@@ -34,11 +34,11 @@
     </footer>
   </main>
  <!--   Core JS Files   -->
-  <script src="./assets/admin/js/core/popper.min.js"></script>
-  <script src="./assets/admin/js/core/bootstrap.min.js"></script>
-  <script src="./assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="./assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="./assets/admin/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/admin/js/core/popper.min.js"></script>
+  <script src="../assets/admin/js/core/bootstrap.min.js"></script>
+  <script src="../assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/admin/js/plugins/chartjs.min.js"></script>
  
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -53,7 +53,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-  <script src="./assets/admin/js/app.js"></script>
+  <script src="../assets/admin/js/app.js"></script>
 </body>
 
 </html>
