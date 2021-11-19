@@ -118,9 +118,10 @@
 <script>
   function getTopLeague()
   {
+	  alert("CC")
     $.ajax({
     type: "GET",
-    url: "http://localhost:8000/LeagueTop",
+    url: "http://localhost:8080/LeagueTop",
     contentType: "application/json",
     success: function (response) {
       var i = 1;
@@ -155,7 +156,7 @@
   function getLeague()
   {$.ajax({
     type: "GET",
-    url: "http://localhost:8000/LeagueGet",
+    url: "http://localhost:8080/LeagueGet",
     contentType: "application/json",
     success: function (response) {
       // alert(JSON.stringify(response));
@@ -190,7 +191,7 @@
   function UpdateLeague()
   {$.ajax({
     type: "GET",
-    url: "http://localhost:8000/LeagueUpdate",
+    url: "http://localhost:8080/LeagueUpdate",
     contentType: "application/json",
     success: function (response) {
       // alert(JSON.stringify(response));

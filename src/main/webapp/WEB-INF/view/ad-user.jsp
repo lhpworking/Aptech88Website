@@ -142,7 +142,7 @@ getClientList();
   function getClientList()
   {$.ajax({
     type: "GET",
-    url: "http://localhost:8000/AccountGet",
+    url: "http://localhost:8080/AccountGet",
     contentType: "application/json",
     success: function (response) {
       // alert(JSON.stringify(response));

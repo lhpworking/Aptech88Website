@@ -112,7 +112,7 @@ getBettingType();
   function getBettingType()
   {$.ajax({
     type: "GET",
-    url: "http://localhost:8000/BettypeGet",
+    url: "http://localhost:8080/BettypeGet",
     success: function (response) {
       // alert(JSON.stringify(response));
 
@@ -138,7 +138,7 @@ getBettingType();
   function updateBettingType() {
     $.ajax({
     type: "GET",
-    url: "http://localhost:8000/BettypeUpdate",
+    url: "http://localhost:8080/BettypeUpdate",
     contentType: "application/json",
     success: function (response) {
       // alert(JSON.stringify(response));

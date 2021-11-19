@@ -113,7 +113,7 @@
             function getTeam() {
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost:8000/TeamGet",
+                    url: "http://localhost:8080/TeamGet",
                     contentType: "application/json",
                     success: function(response) {
                         // alert(JSON.stringify(response));

@@ -305,7 +305,7 @@ function dateFixture() {
   }
   $.ajax({
     type: "POST",
-    url: "http://localhost:8000/FixtureUpdate",
+    url: "http://localhost:8080/FixtureUpdate",
     contentType: "application/json",
     data: JSON.stringify(inputJson),
     success: function (response) {

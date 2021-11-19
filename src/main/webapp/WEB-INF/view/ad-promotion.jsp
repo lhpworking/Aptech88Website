@@ -153,7 +153,7 @@ function getPromotion()
     $.ajax({
     type: "post",
     data: JSON.stringify(p),
-    url: "http://localhost:8000/PromotionCreate",
+    url: "http://localhost:8080/PromotionCreate",
     contentType: "application/json",
     success: function (data) {
         // alert(JSON.stringify(data)); 
