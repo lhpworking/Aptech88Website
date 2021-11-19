@@ -398,6 +398,7 @@
             var formRegister = {
                 firstName: $('#firstName').val(),
                 lastName: $('#lastName').val(),
+                name: '',
                 phonenumber: $('#phone').val(),
                 username: $('#username').val(),
                 email: $('#email').val(),
@@ -405,9 +406,35 @@
                 confirmPassword: $('#confirmPassword').val()
             }
             if (checkEmpty(formRegister) == true) {
+                if (formRegister.username.length < 6 || formRegister.username.length > 20) {
+                    alert('Username must be between 6 and 15 characters');
+                    return;
+                }
+                if (phonenumber(formRegister.phonenumber) === false) {
+                    alert('Phone number is not valid');
+                    return;
+                }
+                if (formRegister.password.length < 6) {
+                    alert('Password must be more than 6 characters');
+                    return;
+                }
                 if (formRegister.password == formRegister.confirmPassword) {
-                    createAccountApi(formRegister);
-                    closeModal();
+                    //createAccountApi(formRegister);
+                    formRegister.name = formRegister.firstName + ' ' + formRegister.lastName;
+                    $.ajax({
+                        method: 'post',
+                        url: 'http://localhost:8000/AccountCreate',
+                        contentType: 'application/json',
+                        async: false,
+                        data: JSON.stringify(formRegister),
+                        success: function(data) {
+                            alert('Please check your email to verify information accoumt');
+                            closeModal();
+                        },
+                        error: function(data) {
+                            alert(JSON.stringify(data.responseText));
+                        }
+                    })
                 } else {
                     alert('Confirm password is incorrect !!');
                 }
