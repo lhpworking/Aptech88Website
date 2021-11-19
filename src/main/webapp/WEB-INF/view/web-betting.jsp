@@ -1,5 +1,17 @@
 <%@include file="../common/website/web-header.jspf" %>
     <script>
+        // if (getCookie('profileUser') == null) {
+        //     window.location.href = '/web';
+        // } else {
+        //     var user = JSON.parse(getCookie('profileUser'));
+        //     $(document).ready(function() {
+
+        //     })
+        // }
+        var league = getCookie('league');
+        $(document).ready(function() {
+            $('#matchs').attr('href', '/web/match/?league=' + league);
+        });
         var url_string = window.location.href;
         var url = new URL(url_string);
         var fixture = url.searchParams.get("match");
@@ -168,14 +180,23 @@
                     </div>
                 </div>
                 <!-- content screen -->
+
                 <div class="main-screen col-lg-10 col-12 ms-lg-auto border-0  shadow p-0 ">
                     <div class="title-leagues d-flex justify-content-center align-items-center border-0 bg-white shadow-sm text-center mb-3">
                         <img class="mt-2 mb-2 me-3" src="" width="100" height="100" id="image" alt="">
                         <h1 id="league" class="m-0">UEFA Champion Leagues</h1>
                     </div>
+
                     <div class="container ">
+                        <a href="/web" style="text-decoration: none; font-size: 11px;">Home</a>
+                        <span style="text-decoration: none; font-size: 11px;"> > </span>
+                        <a href="/web/choose-league" style="text-decoration: none; font-size: 11px;">Leagues</a>
+                        <span style="text-decoration: none; font-size: 11px;"> > </span>
+                        <a href="#" id="matchs" style="text-decoration: none; font-size: 11px;">Matchs</a>
+                        <span style="text-decoration: none; font-size: 11px;"> > </span>
+                        <span style="font-size: 11px;">This match</span>
                         <!-- fixture block main markets -->
-                        <div class="fixture d-flex flex-column ">
+                        <div class="fixture d-flex flex-column " style="margin-top: 10px;">
                             <div class="card rounded-md shadow-sm mb-3">
                                 <!-- table main markets -->
                                 <div class="d-inline-flex align-items-center border-0  p-5 justify-content-around">
@@ -259,7 +280,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary" id="cancelModal" data-bs-dismiss="modal">Cancel</button>
                                     <button type="button" class="btn btn-primary" id="betCreate">Submit</button>
                                 </div>
                             </div>
@@ -272,37 +293,25 @@
                 var user = getCookie('profileUser');
                 user = JSON.parse(user);
 
-
-
                 $('#betCreate').on('click', function() {
-                    var wallet = user.wallet[0].id;
-                    var stake = parseFloat($('#stake').val());
-                    var betId = parseInt($('#betIdHidden').val());
-                    var value = $('#value').html();
-                    var oddValue = parseFloat($('#odd').html());
-                    var currentDate = new Date();
-                    var date = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
-                    alert(stake);
-                    if (stake > 0) {
-                        var bet = {
-                            walletId: parseInt(wallet),
-                            betAmount: stake
-                        };
-                        var betdetail_odds = [{
-                            date: date,
-                            status: false,
-                            bettypeId: betId,
-                            oddId: 0,
-                            value: value,
-                            oddValue: oddValue,
-                            fixtureId: parseInt(fixture)
-                        }];
-                        var bet_betdetail_odd = {
-                            bet: {
+                    if (user == null) {
+                        alert('Please login to continue create bet');
+                        return;
+                    }
+                    if (confirm('Are you sure you want to place this bet ?')) {
+                        var wallet = user.wallet[0].id;
+                        var stake = parseFloat($('#stake').val());
+                        var betId = parseInt($('#betIdHidden').val());
+                        var value = $('#value').html();
+                        var oddValue = parseFloat($('#odd').html());
+                        var currentDate = new Date();
+                        var date = currentDate.getFullYear() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getDate();
+                        if (stake > 0) {
+                            var bet = {
                                 walletId: parseInt(wallet),
                                 betAmount: stake
-                            },
-                            betdetail_odds: [{
+                            };
+                            var betdetail_odds = [{
                                 date: date,
                                 status: false,
                                 bettypeId: betId,
@@ -310,42 +319,71 @@
                                 value: value,
                                 oddValue: oddValue,
                                 fixtureId: parseInt(fixture)
-                            }]
-                        }
-                        console.log(bet_betdetail_odd)
-                        console.log(JSON.stringify(bet_betdetail_odd));
-                        console.log(bet_betdetail_odd.bet);
-                        console.log(bet_betdetail_odd.betdetail_odds);
-
-                        $.ajax({
-                            method: 'post',
-                            url: 'http://localhost:8000/BetCreate',
-                            contentType: 'application/json;',
-                            data: {
-                                bet_betdetail_odd: JSON.stringify({
-                                    bet: {
-                                        walletId: parseInt(wallet),
-                                        betAmount: stake
-                                    },
-                                    betdetail_odds: [{
-                                        date: date,
-                                        status: false,
-                                        bettypeId: betId,
-                                        oddId: 0,
-                                        value: value,
-                                        oddValue: oddValue,
-                                        fixtureId: parseInt(fixture)
-                                    }]
-                                })
+                            }];
+                            var bet_betdetail_odd = {
+                                walletId: wallet,
+                                betAmount: stake,
+                                betdetail_odds: [{
+                                    date: date,
+                                    status: false,
+                                    bettypeId: betId,
+                                    oddId: 0,
+                                    value: value,
+                                    oddValue: oddValue,
+                                    fixtureId: parseInt(fixture)
+                                }]
                             }
-                        }).done(function(res) {
-                            alert(JSON.stringify(res));
-                        }).fail(function(er) {
-                            alert(JSON.stringify(er));
-                        });
+                            console.log(bet_betdetail_odd)
+                            console.log(JSON.stringify(bet_betdetail_odd));
+                            console.log(bet_betdetail_odd.bet);
+                            console.log(bet_betdetail_odd.betdetail_odds);
 
-                    } else {
-                        alert('Stake must be more than 0$');
+                            $.ajax({
+                                method: 'post',
+                                url: '/web/bet/createBet',
+                                data: {
+                                    walletId: wallet,
+                                    betAmount: stake,
+                                    date: date,
+                                    status: false,
+                                    bettypeId: betId,
+                                    oddId: 0,
+                                    value: value,
+                                    oddValue: oddValue,
+                                    fixtureId: fixture
+                                },
+                                success: function(data) {
+                                    data = JSON.parse(data);
+                                    if (data.statusCode == 200) {
+                                        alert("Create bet success, please check history betting in your account management. Thank for betting");
+                                        $('#stake').val('');
+                                        $('#stakeShow').html('0');
+                                        $('#moneyWin').html('0');
+                                        $('#cancelModal').click();
+                                        $.ajax({
+                                            method: 'post',
+                                            url: 'http://localhost:8000/WalletGet',
+                                            data: {
+                                                accountId: user.id
+                                            },
+                                            success: function(wallet) {
+                                                console.log(wallet);
+                                                $.each(wallet, function(index, value) {
+                                                    if (value.accountId == user.id) {
+                                                        $('#miniAccountMoney').html(formatter.format(value.amount));
+                                                    }
+                                                });
+                                            }
+                                        })
+                                    } else if (data.statusCode == 404) {
+                                        alert("Your amount is less than " + stake + '$. Please recharge more money to your wallet!');
+                                    }
+                                }
+                            })
+
+                        } else {
+                            alert('Stake must be more than 0$');
+                        }
                     }
                 });
 

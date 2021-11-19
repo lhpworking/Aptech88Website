@@ -26,30 +26,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../assets/website/js/cookie.js"></script>
 <script>
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
 
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
     }
-    return null;
-}
 
-function eraseCookie(name) {
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+    function eraseCookie(name) {
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
     checkUserProfile();
 
     function checkUserProfile() {
@@ -67,12 +67,27 @@ function eraseCookie(name) {
             // if loged
             eraseCookie('pathUserWant');
             var user = JSON.parse(getCookie('profileUser'));
+            console.log(user);
             $(document).ready(function() {
                 $('#loginAndRegisterHeader').css('display', 'none');
                 $('#notificationHeader').css('display', 'block');
                 $('#inforuserHeader').css('display', 'block');
                 $('#nameDropdown').html(user.name);
-                $('#miniAccountMoney').html(formatter.format(user.wallet[0].amount));
+                $.ajax({
+                    method: 'post',
+                    url: 'http://localhost:8000/WalletGet',
+                    data: {
+                        accountId: user.id
+                    },
+                    success: function(wallet) {
+                        console.log(wallet);
+                        $.each(wallet, function(index, value) {
+                            if (value.accountId == user.id) {
+                                $('#miniAccountMoney').html(formatter.format(value.amount));
+                            }
+                        });
+                    }
+                })
             })
         }
     }
@@ -409,6 +424,8 @@ function eraseCookie(name) {
             if (checkEmpty(formLogin) == true) {
                 loginApi(formLogin).then((user) => {
                     // don't get payment because date of payment maybe make cookie maximum string lenght => error when save cookie.
+                    console.log(user);
+                    user.wallet[0].bet = null;
                     user.wallet[0].payment = null;
 
                     setCookie('profileUser', JSON.stringify(user), 1);

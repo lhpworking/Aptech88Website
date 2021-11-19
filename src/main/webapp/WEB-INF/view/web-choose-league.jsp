@@ -14,7 +14,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="league-choose-form ">
+                <div>
+                    <a href="/web" style="text-decoration: none; font-size: 11px;">Home</a>
+                    <span style="text-decoration: none; font-size: 11px;"> > </span>
+                    <span style="text-decoration: none; font-size: 11px;"> Leagues </span>
+                </div>
+                <div class="league-choose-form " style="margin-top: 10px;">
                     <div class="row mb-3 flex-lg-row flex-column " id="leagues">
 
                     </div>

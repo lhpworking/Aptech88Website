@@ -4,6 +4,7 @@
         var url = new URL(url_string);
         var fixture = url.searchParams.get("league");
 
+        setCookie('league', fixture);
 
         function getFixture(leagueId) {
             var param = {
@@ -116,8 +117,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="league-choose-form ">
+                <div>
+                    <a href="/web" style="text-decoration: none; font-size: 11px;">Home</a>
+                    <span style="text-decoration: none; font-size: 11px;"> > </span>
+                    <a href="/web/choose-league" style="text-decoration: none; font-size: 11px;">Leagues</a>
+                    <span style="text-decoration: none; font-size: 11px;"> > </span>
+                    <span style="text-decoration: none; font-size: 11px;"> Matchs </span>
+                </div>
+                <div class="league-choose-form " style="margin-top: 10px;">
                     <div class="row mb-3 flex-lg-row flex-column " id="matchs">
+
                         <div>
                             <h2>We will update new match as soon as posible</h2>
                         </div>

@@ -4,16 +4,30 @@
 
     } else {
         var user = JSON.parse(getCookie('profileUser'));
-        var wallet = user.wallet[0];
         $(document).ready(function() {
+            // $.ajax({
+            //     method: 'post',
+            //     url: 'http://localhost:8000/wallet/getAmount',
+            //     data: {
+            //         id: parseInt(user.id)
+            //     },
+            //     success: function(data) {
+            //         $('#amountWallet').html(formatter.format(data));
+            //     }
+            // })
             $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/wallet/getAmount',
+                url: 'http://localhost:8000/WalletGet',
                 data: {
-                    id: parseInt(user.id)
+                    accountId: user.id
                 },
-                success: function(data) {
-                    $('#amountWallet').html(formatter.format(data));
+                success: function(wallet) {
+                    console.log(wallet);
+                    $.each(wallet, function(index, value) {
+                        if (value.accountId == user.id) {
+                            $('#amountWallet').html(formatter.format(value.amount));
+                        }
+                    });
                 }
             })
         })

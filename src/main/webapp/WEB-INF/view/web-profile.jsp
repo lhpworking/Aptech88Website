@@ -1,7 +1,7 @@
 <%@include file="../common/website/web-header.jspf"%>
     <script>
         if (getCookie('profileUser') == null) {
-            window.location.href = '/web/recharge';
+            window.location.href = '/web';
         } else {
             var user = JSON.parse(getCookie('profileUser'));
             $(document).ready(function() {
