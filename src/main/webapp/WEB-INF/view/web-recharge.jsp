@@ -23,7 +23,7 @@
                                 <div class="method-block card shadow-sm p-3">
                                     <ul class="menu-method list-unstyled">
                                         <li class="menu-method-item  p-3 d-flex align-items-center gap-3">
-                                            <img  src="../assets/website/img/paypal.png" width="100" height="100" alt="">
+                                            <img src="../assets/website/img/paypal.png" width="100" height="100" alt="">
                                             <div class="">
                                                 <h5 class="menu-method-link m-0">Paypal</h5>
                                                 <p class="fs-7 text-muted m-0"> Free</p>
@@ -45,7 +45,7 @@
                                         </li>
                                         <li class="menu-method-item  p-3 d-flex align-items-center gap-3 mt-3">
                                             <i class="bi bi-bank2 me-2 " style="font-size: 90px"></i>
-                                            <div >
+                                            <div>
                                                 <h5 class="menu-method-link m-0">Bank Transfer</h5>
                                                 <p class="fs-7 text-muted m-0"> Free</p>
                                             </div>
@@ -148,7 +148,7 @@
             }
             $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/PaymentCreate',
+                url: 'http://localhost:8080/PaymentCreate',
                 contentType: 'application/json',
                 data: JSON.stringify(payment),
                 success: function(res) {

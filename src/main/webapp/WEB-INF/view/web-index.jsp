@@ -167,7 +167,7 @@
         }, "jsonp");
         // $.ajax({
         //     method: 'get',
-        //     url: 'http://localhost:8000/LeagueUpdate',
+        //     url: 'http://localhost:8080/LeagueUpdate',
         //     success: function(data) {
         //         alert(JSON.stringify(data));
         //     }
@@ -179,7 +179,7 @@
             }
             // $.ajax({
             //     method: 'post',
-            //     url: 'http://localhost:8000/FixtureUpdate',
+            //     url: 'http://localhost:8080/FixtureUpdate',
             //     contentType: 'application/json',
             //     data: JSON.stringify(param),
             //     success: function(data) {

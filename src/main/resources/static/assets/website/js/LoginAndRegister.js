@@ -2,7 +2,7 @@ function createAccountApi(obj) {
     obj.name = obj.firstName + ' ' + obj.lastName;
     $.ajax({
         method: 'post',
-        url: 'http://localhost:8000/AccountCreate',
+        url: 'http://localhost:8080/AccountCreate',
         contentType: 'application/json',
         async: false,
         data: JSON.stringify(obj),
@@ -27,7 +27,7 @@ function phonenumber(inputtxt) {
 function loginApi(obj) {
     return $.ajax({
         method: 'post',
-        url: 'http://localhost:8000/AccountLogin',
+        url: 'http://localhost:8080/AccountLogin',
         contentType: 'application/json',
         async: false,
         data: JSON.stringify(obj)

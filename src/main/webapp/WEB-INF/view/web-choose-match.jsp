@@ -12,7 +12,7 @@
             }
             return $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/FixtureGet',
+                url: 'http://localhost:8080/FixtureGet',
                 contentType: 'application/json',
                 async: false,
                 data: JSON.stringify(param)
@@ -25,7 +25,7 @@
             };
             return $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/GetTeamById',
+                url: 'http://localhost:8080/GetTeamById',
                 contentType: 'application/json',
                 data: JSON.stringify(param)
             })
@@ -58,7 +58,7 @@
                     };
                     $.ajax({
                         method: 'post',
-                        url: 'http://localhost:8000/GetTeamById',
+                        url: 'http://localhost:8080/GetTeamById',
                         contentType: 'application/json',
                         async: false,
                         data: JSON.stringify(away),
@@ -77,7 +77,7 @@
                     };
                     $.ajax({
                         method: 'post',
-                        url: 'http://localhost:8000/GetTeamById',
+                        url: 'http://localhost:8080/GetTeamById',
                         contentType: 'application/json',
                         async: false,
                         data: JSON.stringify(home),

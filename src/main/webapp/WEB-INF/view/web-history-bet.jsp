@@ -29,7 +29,7 @@
                     }
                     $.ajax({
                         method: 'post',
-                        url: 'http://localhost:8000/GetOddById',
+                        url: 'http://localhost:8080/GetOddById',
                         contentType: 'application/json',
                         async: false,
                         data: JSON.stringify(fixture)
@@ -40,7 +40,7 @@
                         var oddName = oddInfor.value;
                         $.ajax({
                             method: 'post',
-                            url: 'http://localhost:8000/GetFixtureById',
+                            url: 'http://localhost:8080/GetFixtureById',
                             contentType: 'application/json',
                             async: false,
                             data: JSON.stringify(fixtureInfor)
@@ -52,7 +52,7 @@
                             }
                             $.ajax({
                                 method: 'post',
-                                url: 'http://localhost:8000/GetBettypeById',
+                                url: 'http://localhost:8080/GetBettypeById',
                                 contentType: 'application/json',
                                 async: false,
                                 data: JSON.stringify(bettypeId)
@@ -105,7 +105,7 @@
             }
             $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/GetOddById',
+                url: 'http://localhost:8080/GetOddById',
                 contentType: 'application/json',
                 data: JSON.stringify(fixture)
             })
@@ -117,7 +117,7 @@
             }
             return $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/HistoryFindByAccount',
+                url: 'http://localhost:8080/HistoryFindByAccount',
                 contentType: 'application/json',
                 data: JSON.stringify(account)
             })

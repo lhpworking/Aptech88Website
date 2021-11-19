@@ -15,7 +15,7 @@
         function countAllAndRenderPagination() {
             return $.ajax({
                 method: 'get',
-                url: 'http://localhost:8000/payment/countPaymentByWalletId',
+                url: 'http://localhost:8080/payment/countPaymentByWalletId',
                 data: {
                     id: user.wallet[0].id
                 }
@@ -47,7 +47,7 @@
             }
             $.ajax({
                 method: 'get',
-                url: 'http://localhost:8000/payment/getPaymentByWallet',
+                url: 'http://localhost:8080/payment/getPaymentByWallet',
                 data: {
                     id: id,
                     skip: skip,
@@ -237,7 +237,7 @@
                 }
                 return $.ajax({
                     method: 'get',
-                    url: 'http://localhost:8000/payment/countOfFilter',
+                    url: 'http://localhost:8080/payment/countOfFilter',
                     data: {
                         fromDate: fromDate,
                         toDate: toDate,
@@ -258,7 +258,7 @@
                 }
                 return $.ajax({
                     method: 'get',
-                    url: 'http://localhost:8000/payment/filterDate',
+                    url: 'http://localhost:8080/payment/filterDate',
                     data: {
                         fromDate: fromDate,
                         toDate: toDate,

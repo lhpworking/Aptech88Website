@@ -72,7 +72,7 @@ public class bettingPage {
         JSONObject obj = new JSONObject(betDetaiOdd);
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         try {
-            HttpPost requestt = new HttpPost("http://localhost:8000/BetCreate");
+            HttpPost requestt = new HttpPost("http://localhost:8080/BetCreate");
             StringEntity params = new StringEntity(obj.toString());
             requestt.addHeader("content-type", "application/json");
             requestt.setEntity(params);

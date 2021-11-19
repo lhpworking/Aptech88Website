@@ -75,7 +75,7 @@
                 $('#nameDropdown').html(user.name);
                 $.ajax({
                     method: 'post',
-                    url: 'http://localhost:8000/WalletGet',
+                    url: 'http://localhost:8080/WalletGet',
                     data: {
                         accountId: user.id
                     },
@@ -423,7 +423,7 @@
                     formRegister.name = formRegister.firstName + ' ' + formRegister.lastName;
                     $.ajax({
                         method: 'post',
-                        url: 'http://localhost:8000/AccountCreate',
+                        url: 'http://localhost:8080/AccountCreate',
                         contentType: 'application/json',
                         async: false,
                         data: JSON.stringify(formRegister),

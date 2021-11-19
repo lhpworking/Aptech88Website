@@ -57,7 +57,7 @@
         function getListShow() {
             return $.ajax({
                 method: 'get',
-                url: 'http://localhost:8000/LeagueTop'
+                url: 'http://localhost:8080/LeagueTop'
             })
         }
         getListShow().then(res => {

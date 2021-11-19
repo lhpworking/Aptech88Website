@@ -7,7 +7,7 @@
         $(document).ready(function() {
             // $.ajax({
             //     method: 'post',
-            //     url: 'http://localhost:8000/wallet/getAmount',
+            //     url: 'http://localhost:8080/wallet/getAmount',
             //     data: {
             //         id: parseInt(user.id)
             //     },
@@ -17,7 +17,7 @@
             // })
             $.ajax({
                 method: 'post',
-                url: 'http://localhost:8000/WalletGet',
+                url: 'http://localhost:8080/WalletGet',
                 data: {
                     accountId: user.id
                 },
