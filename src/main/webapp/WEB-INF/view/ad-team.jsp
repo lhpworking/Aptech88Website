@@ -2,7 +2,7 @@
   <!-- main content -->
   <div class="container-fluid py-4">
     <%-- card input data form --%>
-      <div class="card p-3">
+      <%-- <div class="card p-3">
         <h4 class=" my-3 my-lg-3">Add Team</h4>
         <div class="row">
           <div class="col-6 col-lg-6">
@@ -23,7 +23,7 @@
             <button class="btn bg-gradient-yellow text-white w-100">submit</button>
           </div>
         </div>
-      </div>
+      </div> --%>
       <div class="row pt-3">
         <!-- card layout project -->
         <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
@@ -33,7 +33,12 @@
                     <div class="input-group input-group-outline ">
                         <input type="text" class="form-control" placeholder="Search..">
                     </div>
-                </div>        
+                </div>  
+                <div class="col-3 col-lg-3">
+                    <div class="input-group input-group-outline ">
+                      <button class="btn bg-gradient-yellow text-white w-100" onclick="getTeam();">Get Team</button>
+                    </div>
+                </div>      
             </div>
             <div class="table-responsive">
               <table class="table align-items-center mb-0">
@@ -43,10 +48,9 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Team Logo </th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Team Name</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbTeam">
                   <tr>
                     <td >
                       <p class="ps-3 font-weight-bold mb-0">1</p>
@@ -105,3 +109,48 @@
   </div>
   <!-- end main content -->
   <%@include file="../common/admin/footer.jspf" %>
+<script>
+  getTeam();
+  function getTeam()
+  {$.ajax({
+    type: "GET",
+    url: "http://localhost:8000/TeamGet",
+    contentType: "application/json",
+    success: function (response) {
+      // alert(JSON.stringify(response));
+
+      var row = '<tbody id="tbTeam">';
+      $.each(response, function (indexInArray, valueOfElement) {
+        row +=
+          " <tr>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.id +'</p>' +
+          "</td>" +
+          "<td>" +
+          '<div class="d-flex ps-3 px-2 py-1">' +
+          '<img src="'+valueOfElement.logo +'" class="avatar avatar-sm me-3">' +
+          "</div>" +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.name+'r</p>' +
+          "</td>" +
+          "<td >" +
+          '<span class="ms-3 badge badge-sm bg-gradient-success">Active</span>' +
+          "</td>" +
+          "</tr>";
+      });
+      row += " </tbody>";
+      $("#tbTeam").replaceWith(row);
+    },
+  })}
+  // function UpdateLeague()
+  // {$.ajax({
+  //   type: "GET",
+  //   url: "http://localhost:8000/LeagueUpdate",
+  //   contentType: "application/json",
+  //   success: function (response) {
+  //     // alert(JSON.stringify(response));
+  //     getLeague();
+  //   },
+  // })}
+</script>;

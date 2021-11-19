@@ -10,7 +10,12 @@
                     <div class="input-group input-group-outline ">
                         <input type="text" class="form-control" placeholder="Search..">
                     </div>
-                </div>        
+                </div>   
+              <div class="col-3 col-lg-3">
+                    <div class="input-group input-group-outline ">
+                      <button class="btn bg-gradient-yellow text-white w-100" onclick="getClientList();">Client List</button>
+                    </div>
+                </div>     
             </div>
             <div class="table-responsive">
               <table class="table align-items-center mb-0">
@@ -23,7 +28,6 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Contact</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Verified</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Password</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Country</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Province</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Max Deposit</th>
@@ -36,7 +40,7 @@
                     <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbClient">
                   <tr>
                     <td >
                       <p class="ps-3 font-weight-bold mb-0">1</p>
@@ -132,3 +136,74 @@
   </div>
   <!-- end main content -->
   <%@include file="../common/admin/footer.jspf" %>
+
+<script>
+getClientList();
+  function getClientList()
+  {$.ajax({
+    type: "GET",
+    url: "http://localhost:8000/AccountGet",
+    contentType: "application/json",
+    success: function (response) {
+      // alert(JSON.stringify(response));
+
+      var row = '<tbody id="tbClient">';
+      $.each(response, function (indexInArray, valueOfElement) {
+        row +=
+          " <tr>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.id +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.name +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.age +'</p>' +
+          "</td>" +
+           "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.address +'</p>' +
+          "</td>" +  
+          "<td>"+
+            '<p class="ps-3  font-weight-bold mb-0"><i class="bi bi-envelope me-2"></i>'+valueOfElement.email+'</p>'+
+            '<p class="ps-3  font-weight-bold mb-0"><i class="bi bi-phone me-2"></i>'+valueOfElement.phonenumber+'</p>'+
+            '</td>'+
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.verified +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.username +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.country +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.province +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.maximumDeposit +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.todayDeposit +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.protectTimeStart +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.verifiedCode +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.verifiedCreateDate +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.bannedReason +'</p>' +
+          "</td>" +  
+          "<td >" +
+          '<span class="ms-3 badge badge-sm bg-gradient-success">'+valueOfElement.status +'</span>' +
+          "</td>" +
+          "</tr>";
+      });
+      row += " </tbody>";
+      $("#tbClient").replaceWith(row);
+    },
+  })}
+</script>

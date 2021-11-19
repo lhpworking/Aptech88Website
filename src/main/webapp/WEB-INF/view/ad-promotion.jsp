@@ -20,13 +20,13 @@
         <div class="col-12 col-lg-12 pt-3">
            <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <input class="form-check-input" type="checkbox" role="switch" id="promotionActive" checked>
             </div>  
           </div>
         </div>
         <div class="row pt-3">
           <div class="form-group">
-            <button class="btn bg-gradient-yellow text-white w-100">submit</button>
+            <button class="btn bg-gradient-yellow text-white w-100" onclick="createPromotion();">submit</button>
           </div>
         </div>
       </div>
@@ -49,10 +49,9 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promotion Name </th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promotion Value</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbPromotion">
                   <tr>
                     <td >
                       <p class="ps-3 font-weight-bold mb-0">1</p>
@@ -107,3 +106,60 @@
   </div>
   <!-- end main content -->
   <%@include file="../common/admin/footer.jspf" %>
+<script>
+      getPromotion();
+
+function getPromotion()
+  {$.ajax({
+    type: "GET",
+    url: "http://localhost:8000/PromotionGet",
+    contentType: "application/json",
+    success: function (response) {
+      // alert(JSON.stringify(response));
+
+      var row = '<tbody id="tbPromotion">';
+      $.each(response, function (indexInArray, valueOfElement) {
+        row +=
+          " <tr>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+valueOfElement.id +'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.name+'</p>' +
+          "</td>" +
+          "<td >" +
+          '<p class="ps-3 font-weight-bold mb-0">'+ valueOfElement.value+'</p>' +
+          "</td>" +
+          "<td >" +
+          '<span class="ms-3 badge badge-sm bg-gradient-success">'+valueOfElement.status+'</span>' +
+          "</td>" +
+          "</tr>";
+      });
+      row += " </tbody>";
+      $("#tbPromotion").replaceWith(row);
+    },
+  })}
+
+  function createPromotion() {
+    var promotionName = $("#name").val(),
+        promotionVal = $("#value").val(),
+        promotionActive = $("#promotionActive").attr("checked") ? true : false;
+    var p = {
+      name : promotionName,
+      value: promotionVal,
+      status: promotionActive
+    }
+    // alert(JSON.stringify(p));
+    $.ajax({
+    type: "post",
+    data: JSON.stringify(p),
+    url: "http://localhost:8000/PromotionCreate",
+    contentType: "application/json",
+    success: function (data) {
+        // alert(JSON.stringify(data)); 
+      getPromotion();
+      }
+    })
+  }
+
+</script>

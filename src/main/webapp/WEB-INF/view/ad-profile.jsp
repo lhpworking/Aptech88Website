@@ -1,4 +1,4 @@
-<%@include file="../common/admin/ad-header.jspf"%>
+<%@include file="../common/admin/header.jspf"%>
  <div class="main-content position-relative  max-height-vh-100 h-100">
     <div class="container-fluid px-2 px-md-4">
       <div class="page-header min-height-300 border-radius-xl mt-4"
@@ -72,4 +72,4 @@
       </div>
     </div>
   </div>
-<%@include file="../common/admin/ad-footer.jspf"%>
+<%@include file="../common/admin/footer.jspf"%>

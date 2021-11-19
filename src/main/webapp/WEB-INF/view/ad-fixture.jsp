@@ -3,45 +3,24 @@
   <div class="container-fluid py-4">
     <%-- card input data form --%>
       <div class="card p-3">
-        <h4 class=" my-3 my-lg-3">Add fixture</h4>
+        <h4 class=" my-3 my-lg-3">Select Date Fixture</h4>
         <div class="row">
           <div class="col-6 col-lg-6">
             <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
+              <input type="date" class="form-control" id="dateFrom" placeholder="name@example.com" disabled>
+              <label for="floatingInput">Date Form</label>
             </div>
           </div>
           <div class="col-6 col-lg-6">
             <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
-            </div>
-          </div>
-        </div>
-        <div class="row pt-3">
-          <div class="col-6 col-lg-6">
-            <div class="form-floating ">
-              <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">date</label>
-            </div>
-          </div>
-          <div class="col-6 col-lg-6">
-            <div class="form-group ">
-              <input type="file" class="form-control" placeholder="Search..">
-            </div>
-          </div>
-        </div>
-        <div class="row pt-3">
-          <div class="col-12 col-lg-12">
-            <div class="form-floating ">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-              <label for="floatingTextarea">Comments</label>
+              <input type="date" class="form-control" id="dateTo" placeholder="name@example.com">
+              <label for="floatingInput">Date To</label>
             </div>
           </div>
         </div>
         <div class="row pt-3">
           <div class="form-group">
-            <button class="btn bg-gradient-yellow text-white w-100">submit</button>
+            <button class="btn bg-gradient-yellow text-white w-100" onclick="dateFixture();">submit</button>
           </div>
         </div>
       </div>
@@ -193,7 +172,6 @@
                       </a>
                     </td>
                   </tr>
-
                   <tr>
                     <td>
                       <div class="d-flex px-2 py-1">
@@ -289,3 +267,50 @@
   </div>
   <!-- end main content -->
   <%@include file="../common/admin/footer.jspf" %>
+
+<script>
+
+function getToday() {
+    var dateFrom = new Date(),
+      dayFrom = dateFrom.getDate(),
+      monthFrom = dateFrom.getMonth() + 1,
+      yearFrom = dateFrom.getFullYear();
+
+      if (monthFrom < 10) monthFrom = "0" + monthFrom;
+      if (dayFrom < 10) dayFrom = "0" + dayFrom;
+      var today = yearFrom + "-" + monthFrom + "-" + dayFrom ;
+    $("#dateFrom").attr("value", today);    
+  }
+getToday();
+function dateFixture() {
+  var dateFrom = new Date(),
+      dayFrom = dateFrom.getDate(),
+      monthFrom = dateFrom.getMonth() + 1,
+      yearFrom = dateFrom.getFullYear();
+
+      if (monthFrom < 10) monthFrom = "0" + monthFrom;
+      if (dayFrom < 10) dayFrom = "0" + dayFrom;
+  var today = yearFrom + "-" + monthFrom + "-" + dayFrom ;
+
+  var dateTo = new Date($('#dateTo').val()),
+      dayTo = dateTo.getDate(),
+      monthTo = dateTo.getMonth() + 1,
+      yearTo = dateTo.getFullYear();
+  var dateToSelected = [yearTo, monthTo, dayTo].join('-');
+
+  var inputJson = {
+    fromDate: today,
+    toDate: dateToSelected,
+    status: true
+  }
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:8000/FixtureUpdate",
+    contentType: "application/json",
+    data: JSON.stringify(inputJson),
+    success: function (response) {
+      alert(response)
+    }
+  });
+}
+</script>

@@ -149,6 +149,9 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline ">
+              <button class="btn btn-dark m-0">Return Bet</button>
+            </div>
+            <div class="input-group input-group-outline ">
               <input type="text" class="form-control" placeholder="Search..">
             </div>
           </div>
@@ -162,7 +165,7 @@
               </a>
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuUser">
                 <li>
-                  <a class="dropdown-item border-radius-md" href="./profile">
+                  <a class="dropdown-item border-radius-md" href="/profile">
                     View Information
                   </a>
                 </li>
@@ -229,7 +232,7 @@
             <!--notification end  -->
             <!-- Log out -->
             <li class="nav-item ">
-              <a href="./login" class="nav-link text-body p-0">
+              <a href="/login" class="nav-link text-body p-0">
                 Log out
               </a>
             </li>
