@@ -71,7 +71,7 @@
                                 `</div>`;
                         }
                     })
-                    rows += `<div style="width: 50%;"><img src="/assets/website/img/versus.png" alt="" style="width: 20%;"><div>` + match.time + `</div></div>`;
+                    rows += `<div style="width: 50%;"><img src="/assets/website/img/versus.png" alt="" style="width: 20%;"><div>` + match.date + `</div><div>` + match.time + `</div></div>`;
                     var home = {
                         id: match.home
                     };

@@ -61,18 +61,6 @@
             })
         }
         getListShow().then(res => {
-            // alert(JSON.stringify(res));
-            // var listLeagues = [];
-            // $.each(res, function(index, value) {
-            //     var league = {
-            //         id: value[0],
-            //         name: value[1],
-            //         logo: value[2],
-            //         status: value[3]
-            //     }
-            //     listLeagues.push(league);
-            // });
-
             var rows = `<div class="row mb-3 flex-lg-row flex-column " id="leagues">`;
             $.each(res, function(index, league) {
                 rows += `<div class="col-lg-4 col-12 ">` +

@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+
     <link rel="icon" type="image/svg" href="./assets/img/icon-aptech.svg">
     <title>
         Aptech88 - website
@@ -451,6 +452,10 @@
             if (checkEmpty(formLogin) == true) {
                 loginApi(formLogin).then((user) => {
                     // don't get payment because date of payment maybe make cookie maximum string lenght => error when save cookie.
+                    if (user.username == 'admin') {
+                        setCookie('admin', 'loged');
+                        window.location.href = '/admin';
+                    }
                     console.log(user);
                     user.wallet[0].bet = null;
                     user.wallet[0].payment = null;
@@ -463,7 +468,7 @@
                     }
                     checkUserProfile();
                 }).catch(err => {
-                    alert(err.responseText);
+                    alert(err.responseText + 'asd');
                 })
             }
         }

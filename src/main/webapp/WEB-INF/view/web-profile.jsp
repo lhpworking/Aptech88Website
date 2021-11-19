@@ -60,9 +60,9 @@
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" id="passwordProfile" disabled>
                                             <label for="floatingInput">Password</label>
-                                            <a href="#!" class="text-decoration-none fs-7 p-1" data-bs-toggle="modal" data-bs-target="#exampleModal"> Change password</a>
+                                            <a href="#!" class="text-decoration-none fs-7 p-1" data-bs-toggle="modal" data-bs-target="#passwordModal"> Change password</a>
                                             <!-- Modal change password -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -163,6 +163,7 @@
                     name: $('#nameProfile').val(),
                     address: $('#addressProfile').val(),
                     province: $('#provineProfile').val(),
+                    country: $('#nationalityProfile').val(),
                     phonenumber: $('#phoneProfile').val()
                 }
                 if (newProfile.name != "") {
@@ -214,7 +215,7 @@
                     changePassword(data).then((res) => {
                         alert('Change password success');
                         clearModalChangePassword();
-                        $('#exampleModal').modal('toggle');
+                        $('#passwordModal').modal('toggle');
                     }).catch(err => {
                         alert(err.responseText);
                         $('#oldPassword').val('');

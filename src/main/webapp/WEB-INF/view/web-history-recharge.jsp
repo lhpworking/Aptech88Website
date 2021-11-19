@@ -153,16 +153,6 @@
                                                 <input type="date" id="toDate" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                                             </div>
                                         </div>
-                                        <div class="type-block">
-                                            <label for="exampleDataList" class="form-label m-0 fs-7">Type</label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type method">
-                                            <datalist id="datalistOptions">
-                                            <option value="Zalo Pay">
-                                            <option value="Momo Pay">
-                                            <option value="Bank Transfer">
-                                            <option value="QR Pay">
-                                        </datalist>
-                                        </div>
                                         <div class="d-flex align-items-center gap-2">
                                             <button class="btn btn-primary shadow-sm mt-2" id="searchRecharge"><i
                                                 class="bi bi-search me-2"></i>Search</button>
