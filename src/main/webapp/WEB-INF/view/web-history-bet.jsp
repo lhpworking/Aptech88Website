@@ -65,7 +65,8 @@
                                     odd: odd,
                                     betAmount: betAmount,
                                     status: betInfor.status,
-                                    bettype: bettype.name
+                                    bettype: bettype.name,
+                                    betwin: betInfor.win
                                 };
                                 listBets.push(objectBet);
 
@@ -88,12 +89,14 @@
                                 }
                                 rows += `</td>` +
                                     `</td>` +
+                                    `<td>` + objectBet.betwin + `</td>` +
                                     `</tr>`;
                             });
 
                         });
                     });
                 });
+                console.log(listBets);
                 rows += `</tbody>`;
                 $('#listBetHistory').replaceWith(rows);
             });
@@ -221,6 +224,7 @@
                                                     <th scope="col">Fee</th>
                                                     <th scope="col">Total</th>
                                                     <th scope="col">Status</th>
+                                                    <th scope="col">Actually received</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="listBetHistory">
@@ -256,7 +260,6 @@
         </div>
     </main>
     <script>
-        console.log(listBets);
         $('#searchBet').on('click', function() {
             if ($('#fromDate').val() == '' || $('#toDate').val() == '') {
                 alert('Please Choose Date');
@@ -266,7 +269,6 @@
             var toDate = Date.parse($('#toDate').val());
             var user = JSON.parse(getCookie('profileUser'));
             var rows = `<tbody id="listBetHistory">`;
-
             $.each(listBets, function(index, bet) {
                 var date = Date.parse(bet.date);
                 if (fromDate <= date && date <= toDate) {
@@ -289,6 +291,7 @@
                     }
                     rows += `</td>` +
                         `</td>` +
+                        `<td>` + bet.betwin + `</td>` +
                         `</tr>`;
                 }
 
@@ -331,6 +334,7 @@
                 }
                 rows += `</td>` +
                     `</td>` +
+                    `<td>` + bet.betwin + `</td>` +
                     `</tr>`;
             });
             rows += `</tbody>`;
